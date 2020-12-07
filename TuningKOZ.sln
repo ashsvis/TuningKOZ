@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuningKOZ", "TuningKOZ.csproj", "{48C0A62E-E318-4C18-B5F6-E20C2DFDB58B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48C0A62E-E318-4C18-B5F6-E20C2DFDB58B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48C0A62E-E318-4C18-B5F6-E20C2DFDB58B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48C0A62E-E318-4C18-B5F6-E20C2DFDB58B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48C0A62E-E318-4C18-B5F6-E20C2DFDB58B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBAE521B-55D8-4189-BB98-95C0E9ECDC24}
+	EndGlobalSection
+EndGlobal
