@@ -61,6 +61,12 @@
     <Compile Include="View\RiserTuningLinkControl.designer.cs">
       <DependentUpon>RiserTuningLinkControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\RiserTuningPlcControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\RiserTuningPlcControl.designer.cs">
+      <DependentUpon>RiserTuningPlcControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +81,9 @@
     </Compile>
     <EmbeddedResource Include="View\RiserTuningLinkControl.resx">
       <DependentUpon>RiserTuningLinkControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RiserTuningPlcControl.resx">
+      <DependentUpon>RiserTuningPlcControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,12 +1,4 @@
-﻿/*
- * Created by SharpDevelop.
- * User: Experionadmin
- * Date: 06/04/2017
- * Time: 8:15 AM
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
-namespace TuningKOZ
+﻿namespace TuningKOZ
 {
 	partial class RiserTuningLinkControl
 	{
