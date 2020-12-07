@@ -19,6 +19,10 @@ namespace TuningKOZ
             if (error) return;
             riserTuningLink.UpdateData(fetchvals, false);
             riserTuningPlc.UpdateData(fetchvals, false);
+            riserTuningAdc.UpdateData(fetchvals, false);
+            riserTuningAlarmLevel.UpdateData(fetchvals, false);
+            riserTuningAnalogLevel.UpdateData(fetchvals, false);
+            riserStatus.UpdateData(fetchvals, false);
         }
     }
 }

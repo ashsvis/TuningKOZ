@@ -187,12 +187,11 @@ namespace TuningKOZ
 		void BtnSaveClick(object sender, EventArgs e)
 		{
 			if (OnWrite == null) return;
-			ushort hr1A,hr1B,hr1C,hr19,hr39;
-			if (ushort.TryParse(edHR1A.Text, out hr1A) &&
-			    ushort.TryParse(edHR1B.Text, out hr1B) &&
-			    ushort.TryParse(edHR1C.Text, out hr1C) &&
-			    ushort.TryParse(edHR19.Text, out hr19) &&
-			    ushort.TryParse(edHR39.Text, out hr39) &&
+			if (ushort.TryParse(edHR1A.Text, out ushort hr1A) &&
+			    ushort.TryParse(edHR1B.Text, out ushort hr1B) &&
+			    ushort.TryParse(edHR1C.Text, out ushort hr1C) &&
+			    ushort.TryParse(edHR19.Text, out ushort hr19) &&
+			    ushort.TryParse(edHR39.Text, out ushort  hr39) &&
 			    cbHR14_2.Text.Trim().Length > 0 &&
 			    cbHR14_3.Text.Trim().Length > 0 &&
 			    cbHR14_6.Text.Trim().Length > 0 &&

@@ -55,6 +55,30 @@
     <Compile Include="Model\IFetchUpdate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\RiserStatusControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\RiserStatusControl.designer.cs">
+      <DependentUpon>RiserStatusControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RiserTuningAdcControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\RiserTuningAdcControl.designer.cs">
+      <DependentUpon>RiserTuningAdcControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RiserTuningAlarmLevelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\RiserTuningAlarmLevelControl.designer.cs">
+      <DependentUpon>RiserTuningAlarmLevelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RiserTuningAnalogLevelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\RiserTuningAnalogLevelControl.designer.cs">
+      <DependentUpon>RiserTuningAnalogLevelControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RiserTuningLinkControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,6 +90,12 @@
     </Compile>
     <Compile Include="View\RiserTuningPlcControl.designer.cs">
       <DependentUpon>RiserTuningPlcControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UcRiserOneState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UcRiserOneState.designer.cs">
+      <DependentUpon>UcRiserOneState.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -79,11 +109,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\RiserStatusControl.resx">
+      <DependentUpon>RiserStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RiserTuningAdcControl.resx">
+      <DependentUpon>RiserTuningAdcControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RiserTuningAlarmLevelControl.resx">
+      <DependentUpon>RiserTuningAlarmLevelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RiserTuningAnalogLevelControl.resx">
+      <DependentUpon>RiserTuningAnalogLevelControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\RiserTuningLinkControl.resx">
       <DependentUpon>RiserTuningLinkControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RiserTuningPlcControl.resx">
       <DependentUpon>RiserTuningPlcControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UcRiserOneState.resx">
+      <DependentUpon>UcRiserOneState.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
