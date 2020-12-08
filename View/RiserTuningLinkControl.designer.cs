@@ -61,10 +61,12 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 2);
@@ -79,8 +81,8 @@
             this.tableLayoutPanel1.Controls.Add(this.cbParity, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.edAddress, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.cbBaudRate, 2, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 39);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 32);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -88,21 +90,18 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(494, 144);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(348, 120);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoEllipsis = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(4, 0);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(238, 27);
+            this.label4.Size = new System.Drawing.Size(167, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "Адрес устройства (1..247):";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -111,11 +110,10 @@
             // 
             this.label5.AutoEllipsis = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(4, 27);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(3, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(238, 28);
+            this.label5.Size = new System.Drawing.Size(167, 24);
             this.label5.TabIndex = 3;
             this.label5.Text = "Скорость обмена:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -124,11 +122,10 @@
             // 
             this.label6.AutoEllipsis = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(4, 55);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(3, 48);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(238, 28);
+            this.label6.Size = new System.Drawing.Size(167, 24);
             this.label6.TabIndex = 3;
             this.label6.Text = "Паритет:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -137,11 +134,10 @@
             // 
             this.label7.AutoEllipsis = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(4, 83);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(3, 72);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(238, 27);
+            this.label7.Size = new System.Drawing.Size(167, 24);
             this.label7.TabIndex = 3;
             this.label7.Text = "Тайм-аут передачи (мкс):";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -150,11 +146,10 @@
             // 
             this.label8.AutoEllipsis = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(4, 110);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(3, 96);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(238, 26);
+            this.label8.Size = new System.Drawing.Size(167, 22);
             this.label8.TabIndex = 3;
             this.label8.Text = "Тип кадров Modbus:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -163,11 +158,10 @@
             // 
             this.lbAddress.AutoEllipsis = true;
             this.lbAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbAddress.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbAddress.Location = new System.Drawing.Point(250, 0);
-            this.lbAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbAddress.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbAddress.Location = new System.Drawing.Point(176, 0);
             this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(95, 27);
+            this.lbAddress.Size = new System.Drawing.Size(66, 24);
             this.lbAddress.TabIndex = 3;
             this.lbAddress.Text = "------";
             this.lbAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -176,11 +170,10 @@
             // 
             this.lbBaudRate.AutoEllipsis = true;
             this.lbBaudRate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbBaudRate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbBaudRate.Location = new System.Drawing.Point(250, 27);
-            this.lbBaudRate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbBaudRate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbBaudRate.Location = new System.Drawing.Point(176, 24);
             this.lbBaudRate.Name = "lbBaudRate";
-            this.lbBaudRate.Size = new System.Drawing.Size(95, 28);
+            this.lbBaudRate.Size = new System.Drawing.Size(66, 24);
             this.lbBaudRate.TabIndex = 3;
             this.lbBaudRate.Text = "------";
             this.lbBaudRate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -189,11 +182,10 @@
             // 
             this.lbParity.AutoEllipsis = true;
             this.lbParity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbParity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbParity.Location = new System.Drawing.Point(250, 55);
-            this.lbParity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbParity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbParity.Location = new System.Drawing.Point(176, 48);
             this.lbParity.Name = "lbParity";
-            this.lbParity.Size = new System.Drawing.Size(95, 28);
+            this.lbParity.Size = new System.Drawing.Size(66, 24);
             this.lbParity.TabIndex = 3;
             this.lbParity.Text = "------";
             this.lbParity.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -202,11 +194,10 @@
             // 
             this.lbHR38.AutoEllipsis = true;
             this.lbHR38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbHR38.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbHR38.Location = new System.Drawing.Point(250, 83);
-            this.lbHR38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbHR38.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbHR38.Location = new System.Drawing.Point(176, 72);
             this.lbHR38.Name = "lbHR38";
-            this.lbHR38.Size = new System.Drawing.Size(95, 27);
+            this.lbHR38.Size = new System.Drawing.Size(66, 24);
             this.lbHR38.TabIndex = 3;
             this.lbHR38.Text = "------";
             this.lbHR38.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -215,11 +206,10 @@
             // 
             this.lbModbus.AutoEllipsis = true;
             this.lbModbus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbModbus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbModbus.Location = new System.Drawing.Point(250, 110);
-            this.lbModbus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbModbus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbModbus.Location = new System.Drawing.Point(176, 96);
             this.lbModbus.Name = "lbModbus";
-            this.lbModbus.Size = new System.Drawing.Size(95, 26);
+            this.lbModbus.Size = new System.Drawing.Size(66, 22);
             this.lbModbus.TabIndex = 3;
             this.lbModbus.Text = "------";
             this.lbModbus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -227,10 +217,10 @@
             // edHR38
             // 
             this.edHR38.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.edHR38.Location = new System.Drawing.Point(349, 84);
+            this.edHR38.Location = new System.Drawing.Point(245, 73);
             this.edHR38.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.edHR38.Name = "edHR38";
-            this.edHR38.Size = new System.Drawing.Size(145, 26);
+            this.edHR38.Size = new System.Drawing.Size(103, 23);
             this.edHR38.TabIndex = 4;
             this.edHR38.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -243,19 +233,19 @@
             "None",
             "Odd",
             "Even"});
-            this.cbParity.Location = new System.Drawing.Point(349, 56);
+            this.cbParity.Location = new System.Drawing.Point(245, 49);
             this.cbParity.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.cbParity.Name = "cbParity";
-            this.cbParity.Size = new System.Drawing.Size(145, 26);
+            this.cbParity.Size = new System.Drawing.Size(103, 23);
             this.cbParity.TabIndex = 3;
             // 
             // edAddress
             // 
             this.edAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.edAddress.Location = new System.Drawing.Point(349, 1);
+            this.edAddress.Location = new System.Drawing.Point(245, 1);
             this.edAddress.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.edAddress.Name = "edAddress";
-            this.edAddress.Size = new System.Drawing.Size(145, 26);
+            this.edAddress.Size = new System.Drawing.Size(103, 23);
             this.edAddress.TabIndex = 1;
             this.edAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -277,21 +267,21 @@
             "76800",
             "115200",
             "230400"});
-            this.cbBaudRate.Location = new System.Drawing.Point(349, 28);
+            this.cbBaudRate.Location = new System.Drawing.Point(245, 25);
             this.cbBaudRate.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.cbBaudRate.Name = "cbBaudRate";
-            this.cbBaudRate.Size = new System.Drawing.Size(145, 26);
+            this.cbBaudRate.Size = new System.Drawing.Size(103, 23);
             this.cbBaudRate.TabIndex = 2;
             // 
             // btnSave
             // 
             this.btnSave.Enabled = false;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSave.Location = new System.Drawing.Point(363, 236);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSave.Location = new System.Drawing.Point(254, 156);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(7, 2, 7, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(115, 32);
+            this.btnSave.Size = new System.Drawing.Size(96, 27);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Установить";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -299,10 +289,9 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(480, 10);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(336, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 19);
+            this.label2.Size = new System.Drawing.Size(14, 16);
             this.label2.TabIndex = 15;
             this.label2.Text = "W";
             // 
@@ -311,10 +300,10 @@
             this.btnCopy.Enabled = false;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCopy.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCopy.Location = new System.Drawing.Point(334, 7);
-            this.btnCopy.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCopy.Location = new System.Drawing.Point(234, 6);
+            this.btnCopy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(139, 26);
+            this.btnCopy.Size = new System.Drawing.Size(97, 22);
             this.btnCopy.TabIndex = 1;
             this.btnCopy.Text = "копировать>>>";
             this.btnCopy.UseVisualStyleBackColor = true;
@@ -322,15 +311,15 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(306, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(214, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 19);
+            this.label1.Size = new System.Drawing.Size(14, 16);
             this.label1.TabIndex = 13;
             this.label1.Text = "R";
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.02519F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.97481F));
@@ -340,26 +329,25 @@
             this.tableLayoutPanel2.Controls.Add(this.lbHR3A, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbHR3B, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.lbHR3C, 1, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 284);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 189);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(496, 86);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(350, 72);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // label9
             // 
             this.label9.AutoEllipsis = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(4, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(339, 26);
+            this.label9.Size = new System.Drawing.Size(239, 22);
             this.label9.TabIndex = 3;
             this.label9.Text = "Версия программного обеспечения:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -368,11 +356,10 @@
             // 
             this.label10.AutoEllipsis = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(4, 26);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(3, 22);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(339, 26);
+            this.label10.Size = new System.Drawing.Size(239, 22);
             this.label10.TabIndex = 3;
             this.label10.Text = "Версия платы управления:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -381,11 +368,10 @@
             // 
             this.label11.AutoEllipsis = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(4, 52);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(3, 44);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(339, 26);
+            this.label11.Size = new System.Drawing.Size(239, 22);
             this.label11.TabIndex = 3;
             this.label11.Text = "Номер платы управления:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -394,11 +380,10 @@
             // 
             this.lbHR3A.AutoEllipsis = true;
             this.lbHR3A.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbHR3A.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbHR3A.Location = new System.Drawing.Point(351, 0);
-            this.lbHR3A.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbHR3A.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbHR3A.Location = new System.Drawing.Point(248, 0);
             this.lbHR3A.Name = "lbHR3A";
-            this.lbHR3A.Size = new System.Drawing.Size(141, 26);
+            this.lbHR3A.Size = new System.Drawing.Size(99, 22);
             this.lbHR3A.TabIndex = 3;
             this.lbHR3A.Text = "------";
             this.lbHR3A.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -407,11 +392,10 @@
             // 
             this.lbHR3B.AutoEllipsis = true;
             this.lbHR3B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbHR3B.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbHR3B.Location = new System.Drawing.Point(351, 26);
-            this.lbHR3B.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbHR3B.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbHR3B.Location = new System.Drawing.Point(248, 22);
             this.lbHR3B.Name = "lbHR3B";
-            this.lbHR3B.Size = new System.Drawing.Size(141, 26);
+            this.lbHR3B.Size = new System.Drawing.Size(99, 22);
             this.lbHR3B.TabIndex = 3;
             this.lbHR3B.Text = "------";
             this.lbHR3B.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -420,11 +404,10 @@
             // 
             this.lbHR3C.AutoEllipsis = true;
             this.lbHR3C.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbHR3C.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbHR3C.Location = new System.Drawing.Point(351, 52);
-            this.lbHR3C.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbHR3C.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbHR3C.Location = new System.Drawing.Point(248, 44);
             this.lbHR3C.Name = "lbHR3C";
-            this.lbHR3C.Size = new System.Drawing.Size(141, 26);
+            this.lbHR3C.Size = new System.Drawing.Size(99, 22);
             this.lbHR3C.TabIndex = 3;
             this.lbHR3C.Text = "------";
             this.lbHR3C.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -433,10 +416,10 @@
             // 
             this.btnCopyFromStorage.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCopyFromStorage.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCopyFromStorage.Location = new System.Drawing.Point(96, 7);
-            this.btnCopyFromStorage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCopyFromStorage.Location = new System.Drawing.Point(54, 5);
+            this.btnCopyFromStorage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCopyFromStorage.Name = "btnCopyFromStorage";
-            this.btnCopyFromStorage.Size = new System.Drawing.Size(221, 26);
+            this.btnCopyFromStorage.Size = new System.Drawing.Size(155, 22);
             this.btnCopyFromStorage.TabIndex = 0;
             this.btnCopyFromStorage.TabStop = false;
             this.btnCopyFromStorage.Text = "копировать из архива>>>";
@@ -446,7 +429,7 @@
             // 
             // RiserTuningLinkControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnCopyFromStorage);
             this.Controls.Add(this.btnSave);
@@ -455,14 +438,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "RiserTuningLinkControl";
-            this.Size = new System.Drawing.Size(512, 377);
+            this.Size = new System.Drawing.Size(364, 268);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 		private System.Windows.Forms.Button btnCopyFromStorage;

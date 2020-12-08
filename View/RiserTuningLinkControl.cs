@@ -41,65 +41,15 @@ namespace TuningKOZ
 	        }
 
             lbAddress.Text = GetHRegVector(hregs[0x37], 8, 8).ToString("0");
+
             var baud = GetHRegVector(hregs[0x37], 0, 4);
-            switch (baud)
-            {
-                case 0:
-                    lbBaudRate.Text = @"1200";
-                    break;
-                case 1:
-                    lbBaudRate.Text = @"2400";
-                    break;
-                case 2:
-                    lbBaudRate.Text = @"4800";
-                    break;
-                case 3:
-                    lbBaudRate.Text = @"9600";
-                    break;
-                case 4:
-                    lbBaudRate.Text = @"14400";
-                    break;
-                case 5:
-                    lbBaudRate.Text = @"19200";
-                    break;
-                case 6:
-                    lbBaudRate.Text = @"28800";
-                    break;
-                case 7:
-                    lbBaudRate.Text = @"38400";
-                    break;
-                case 8:
-                    lbBaudRate.Text = @"57600";
-                    break;
-                case 9:
-                    lbBaudRate.Text = @"76800";
-                    break;
-                case 10:
-                    lbBaudRate.Text = @"115200";
-                    break;
-                case 11:
-                    lbBaudRate.Text = @"230400";
-                    break;
-                default:
-                    lbBaudRate.Text = @"??????";
-                    break;
-            }
+            var abaud = new[] { "1200", "2400", "4800", "9600", "14400", "19200", "28800", "38400", "57600", "76800", "115200", "230400" };
+            lbBaudRate.Text = baud < abaud.Length ? abaud[baud] : "??????";
+
             var parity = GetHRegVector(hregs[0x37], 4, 2);
-            switch (parity)
-            {
-                case 0:
-                    lbParity.Text = @"None";
-                    break;
-                case 1:
-                    lbParity.Text = @"Odd";
-                    break;
-                case 2:
-                    lbParity.Text = @"Even";
-                    break;
-                default:
-                    lbParity.Text = @"??????";
-                    break;
-            }
+            var apar = new[] { "None", "Odd", "Even" };
+            lbParity.Text = parity < apar.Length ? apar[parity] : "??????";
+
             lbHR38.Text = hregs[0x38].ToString("0");
             var frame = (hregs[0x37] & 0x0080) > 0;
             lbModbus.Text = frame ? "RTU" : "ASCII";
