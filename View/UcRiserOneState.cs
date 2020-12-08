@@ -17,9 +17,8 @@ namespace TuningKOZ
             get { return _captionAtRight; }
             set
             {
-                _captionAtRight = value;
-                tlpLeftToRight.Visible = !_captionAtRight;
-                tlpRightToLeft.Visible = _captionAtRight;
+                lbText.Visible = !value;
+                lbTextRight.Visible = value;
             }
         }
 
@@ -41,7 +40,6 @@ namespace TuningKOZ
             {
                 _state = value;
                 pbLamp.Invalidate();
-                pbLampRight.Invalidate();
             }
         }
 

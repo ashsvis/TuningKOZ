@@ -147,43 +147,44 @@ namespace TuningKOZ
 
         public static void SendToErrorsLog(string content, string sdt = null)
         {
-            if (_errcontent.Equals(content)) return;
-            _errcontent = content;
-            var dt = DateTime.Now;
-            if (sdt != null) DateTime.TryParse(sdt, out dt);
-            var filename = "errors.log";
-            var list = new[]
-                {
-                    dt.ToString("yyyy-MM-dd HH:mm:ss.fff"),
-                    content
-                };
-            ThreadPool.QueueUserWorkItem(arg =>
-            {
-                var count = 10;
-                while (count > 0)
-                {
-                    try
-                    {
-                        lock (Loglocker)
-                        {
-                            using (var stream = new FileStream(filename, FileMode.Append))
-                            {
-                                using (var writer = new StreamWriter(stream))
-                                {
-                                    writer.WriteLine(string.Join("\t", list));
-                                    writer.Flush();
-                                }
-                            }
-                        }
-                        break;
-                    }
-                    catch
-                    {
-                        Thread.Sleep(50);
-                        count--;
-                    }
-                }
-            });
+            Console.WriteLine(content);
+            //if (_errcontent.Equals(content)) return;
+            //_errcontent = content;
+            //var dt = DateTime.Now;
+            //if (sdt != null) DateTime.TryParse(sdt, out dt);
+            //var filename = "errors.log";
+            //var list = new[]
+            //    {
+            //        dt.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+            //        content
+            //    };
+            //ThreadPool.QueueUserWorkItem(arg =>
+            //{
+            //    var count = 10;
+            //    while (count > 0)
+            //    {
+            //        try
+            //        {
+            //            lock (Loglocker)
+            //            {
+            //                using (var stream = new FileStream(filename, FileMode.Append))
+            //                {
+            //                    using (var writer = new StreamWriter(stream))
+            //                    {
+            //                        writer.WriteLine(string.Join("\t", list));
+            //                        writer.Flush();
+            //                    }
+            //                }
+            //            }
+            //            break;
+            //        }
+            //        catch
+            //        {
+            //            Thread.Sleep(50);
+            //            count--;
+            //        }
+            //    }
+            //});
         }
 
     }

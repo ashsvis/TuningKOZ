@@ -215,7 +215,7 @@
             // riserStatus
             // 
             this.riserStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.riserStatus.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.riserStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.riserStatus.Location = new System.Drawing.Point(3, 3);
             this.riserStatus.Margin = new System.Windows.Forms.Padding(4);
             this.riserStatus.Name = "riserStatus";
