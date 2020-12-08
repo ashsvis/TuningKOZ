@@ -190,7 +190,7 @@
             // 
             this.riserTuningAnalogLevel.DataFromStorage = new int[0];
             this.riserTuningAnalogLevel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.riserTuningAnalogLevel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.riserTuningAnalogLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.riserTuningAnalogLevel.IpAddress = null;
             this.riserTuningAnalogLevel.IpPort = 0;
             this.riserTuningAnalogLevel.Location = new System.Drawing.Point(3, 3);
