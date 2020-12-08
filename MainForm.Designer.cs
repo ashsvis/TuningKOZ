@@ -164,14 +164,14 @@
             this.riserTuningPlc.Name = "riserTuningPlc";
             this.riserTuningPlc.NodeAddr = 0;
             this.riserTuningPlc.NodeType = 0;
-            this.riserTuningPlc.Size = new System.Drawing.Size(648, 606);
+            this.riserTuningPlc.Size = new System.Drawing.Size(648, 608);
             this.riserTuningPlc.TabIndex = 0;
             // 
             // riserTuningAdc
             // 
             this.riserTuningAdc.DataFromStorage = new int[0];
             this.riserTuningAdc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.riserTuningAdc.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.riserTuningAdc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.riserTuningAdc.IpAddress = null;
             this.riserTuningAdc.IpPort = 0;
             this.riserTuningAdc.Location = new System.Drawing.Point(3, 3);
@@ -194,7 +194,7 @@
             this.riserTuningAlarmLevel.Name = "riserTuningAlarmLevel";
             this.riserTuningAlarmLevel.NodeAddr = 0;
             this.riserTuningAlarmLevel.NodeType = 0;
-            this.riserTuningAlarmLevel.Size = new System.Drawing.Size(648, 608);
+            this.riserTuningAlarmLevel.Size = new System.Drawing.Size(648, 606);
             this.riserTuningAlarmLevel.TabIndex = 0;
             // 
             // riserTuningAnalogLevel
