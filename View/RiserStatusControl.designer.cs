@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.stateSmallValveError = new TuningKOZ.UcRiserOneState();
-            this.stateGroundError = new TuningKOZ.UcRiserOneState();
-            this.stateLevelError = new TuningKOZ.UcRiserOneState();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
@@ -70,23 +67,27 @@
             this.stopKind15 = new TuningKOZ.UcRiserOneState();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.stateLevelError = new TuningKOZ.UcRiserOneState();
+            this.stateGroundError = new TuningKOZ.UcRiserOneState();
+            this.stateBigValveError = new TuningKOZ.UcRiserOneState();
+            this.stateReadyError = new TuningKOZ.UcRiserOneState();
+            this.stateStopButton = new TuningKOZ.UcRiserOneState();
+            this.stateAnalogLevelMin = new TuningKOZ.UcRiserOneState();
+            this.stateAnalogLevelMax = new TuningKOZ.UcRiserOneState();
+            this.stateAlarmLevelMin = new TuningKOZ.UcRiserOneState();
+            this.stateAlarmLevelMax = new TuningKOZ.UcRiserOneState();
+            this.stateAlarmLevel = new TuningKOZ.UcRiserOneState();
+            this.stateHandButton = new TuningKOZ.UcRiserOneState();
+            this.stateCheckLevel = new TuningKOZ.UcRiserOneState();
+            this.stateCheckGround = new TuningKOZ.UcRiserOneState();
+            this.stateWorkPosition = new TuningKOZ.UcRiserOneState();
+            this.stateReady = new TuningKOZ.UcRiserOneState();
             this.stateStartButton = new TuningKOZ.UcRiserOneState();
             this.stateBigValve = new TuningKOZ.UcRiserOneState();
             this.stateSmallValve = new TuningKOZ.UcRiserOneState();
-            this.stateReady = new TuningKOZ.UcRiserOneState();
-            this.stateWorkPosition = new TuningKOZ.UcRiserOneState();
-            this.stateCheckGround = new TuningKOZ.UcRiserOneState();
-            this.stateCheckLevel = new TuningKOZ.UcRiserOneState();
-            this.stateHandButton = new TuningKOZ.UcRiserOneState();
-            this.stateAlarmLevel = new TuningKOZ.UcRiserOneState();
-            this.stateAlarmLevelMax = new TuningKOZ.UcRiserOneState();
-            this.stateAlarmLevelMin = new TuningKOZ.UcRiserOneState();
-            this.stateAnalogLevelMax = new TuningKOZ.UcRiserOneState();
-            this.stateAnalogLevelMin = new TuningKOZ.UcRiserOneState();
-            this.stateStopButton = new TuningKOZ.UcRiserOneState();
-            this.stateReadyError = new TuningKOZ.UcRiserOneState();
-            this.stateBigValveError = new TuningKOZ.UcRiserOneState();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.stateSmallValveError = new TuningKOZ.UcRiserOneState();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -114,57 +115,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(482, 527);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // stateSmallValveError
-            // 
-            this.stateSmallValveError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateSmallValveError.Caption = "ошибка малого клапана";
-            this.stateSmallValveError.CaptionAtRight = false;
-            this.stateSmallValveError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateSmallValveError.LampColorNone = System.Drawing.Color.Gray;
-            this.stateSmallValveError.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateSmallValveError.LampColorOn = System.Drawing.Color.Red;
-            this.stateSmallValveError.Location = new System.Drawing.Point(238, 189);
-            this.stateSmallValveError.Margin = new System.Windows.Forms.Padding(0);
-            this.stateSmallValveError.Name = "stateSmallValveError";
-            this.stateSmallValveError.Size = new System.Drawing.Size(226, 21);
-            this.stateSmallValveError.State = null;
-            this.stateSmallValveError.TabIndex = 0;
-            // 
-            // stateGroundError
-            // 
-            this.stateGroundError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateGroundError.Caption = "заземление отсутствует";
-            this.stateGroundError.CaptionAtRight = false;
-            this.stateGroundError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateGroundError.LampColorNone = System.Drawing.Color.Gray;
-            this.stateGroundError.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateGroundError.LampColorOn = System.Drawing.Color.Red;
-            this.stateGroundError.Location = new System.Drawing.Point(238, 210);
-            this.stateGroundError.Margin = new System.Windows.Forms.Padding(0);
-            this.stateGroundError.Name = "stateGroundError";
-            this.stateGroundError.Size = new System.Drawing.Size(226, 21);
-            this.stateGroundError.State = null;
-            this.stateGroundError.TabIndex = 0;
-            // 
-            // stateLevelError
-            // 
-            this.stateLevelError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateLevelError.Caption = "сигнал. уровня не исправен";
-            this.stateLevelError.CaptionAtRight = false;
-            this.stateLevelError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateLevelError.LampColorNone = System.Drawing.Color.Gray;
-            this.stateLevelError.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateLevelError.LampColorOn = System.Drawing.Color.Red;
-            this.stateLevelError.Location = new System.Drawing.Point(238, 231);
-            this.stateLevelError.Margin = new System.Windows.Forms.Padding(0);
-            this.stateLevelError.Name = "stateLevelError";
-            this.stateLevelError.Size = new System.Drawing.Size(229, 23);
-            this.stateLevelError.State = null;
-            this.stateLevelError.TabIndex = 0;
             // 
             // label2
             // 
@@ -705,266 +655,10 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(471, 21);
+            this.label1.Size = new System.Drawing.Size(471, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Сигналы PLC  входные";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // stateStartButton
-            // 
-            this.stateStartButton.Caption = "кнопка Пуск";
-            this.stateStartButton.CaptionAtRight = false;
-            this.stateStartButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateStartButton.LampColorNone = System.Drawing.Color.Gray;
-            this.stateStartButton.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateStartButton.LampColorOn = System.Drawing.Color.Red;
-            this.stateStartButton.Location = new System.Drawing.Point(7, 21);
-            this.stateStartButton.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.stateStartButton.Name = "stateStartButton";
-            this.stateStartButton.Size = new System.Drawing.Size(223, 21);
-            this.stateStartButton.State = null;
-            this.stateStartButton.TabIndex = 0;
-            // 
-            // stateBigValve
-            // 
-            this.stateBigValve.Caption = "конечник большого клапана";
-            this.stateBigValve.CaptionAtRight = false;
-            this.stateBigValve.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateBigValve.LampColorNone = System.Drawing.Color.Gray;
-            this.stateBigValve.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateBigValve.LampColorOn = System.Drawing.Color.Lime;
-            this.stateBigValve.Location = new System.Drawing.Point(7, 42);
-            this.stateBigValve.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.stateBigValve.Name = "stateBigValve";
-            this.stateBigValve.Size = new System.Drawing.Size(223, 21);
-            this.stateBigValve.State = null;
-            this.stateBigValve.TabIndex = 0;
-            // 
-            // stateSmallValve
-            // 
-            this.stateSmallValve.Caption = "конечник малого клапана";
-            this.stateSmallValve.CaptionAtRight = false;
-            this.stateSmallValve.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateSmallValve.LampColorNone = System.Drawing.Color.Gray;
-            this.stateSmallValve.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateSmallValve.LampColorOn = System.Drawing.Color.Lime;
-            this.stateSmallValve.Location = new System.Drawing.Point(7, 63);
-            this.stateSmallValve.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.stateSmallValve.Name = "stateSmallValve";
-            this.stateSmallValve.Size = new System.Drawing.Size(223, 21);
-            this.stateSmallValve.State = null;
-            this.stateSmallValve.TabIndex = 0;
-            // 
-            // stateReady
-            // 
-            this.stateReady.Caption = "цепь готовности";
-            this.stateReady.CaptionAtRight = false;
-            this.stateReady.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateReady.LampColorNone = System.Drawing.Color.Gray;
-            this.stateReady.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateReady.LampColorOn = System.Drawing.Color.Lime;
-            this.stateReady.Location = new System.Drawing.Point(7, 84);
-            this.stateReady.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.stateReady.Name = "stateReady";
-            this.stateReady.Size = new System.Drawing.Size(224, 21);
-            this.stateReady.State = null;
-            this.stateReady.TabIndex = 0;
-            // 
-            // stateWorkPosition
-            // 
-            this.stateWorkPosition.Caption = "конечник рабочего положения";
-            this.stateWorkPosition.CaptionAtRight = false;
-            this.stateWorkPosition.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateWorkPosition.LampColorNone = System.Drawing.Color.Gray;
-            this.stateWorkPosition.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateWorkPosition.LampColorOn = System.Drawing.Color.Lime;
-            this.stateWorkPosition.Location = new System.Drawing.Point(7, 105);
-            this.stateWorkPosition.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.stateWorkPosition.Name = "stateWorkPosition";
-            this.stateWorkPosition.Size = new System.Drawing.Size(223, 21);
-            this.stateWorkPosition.State = null;
-            this.stateWorkPosition.TabIndex = 0;
-            // 
-            // stateCheckGround
-            // 
-            this.stateCheckGround.Caption = "контроль заземления";
-            this.stateCheckGround.CaptionAtRight = false;
-            this.stateCheckGround.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateCheckGround.LampColorNone = System.Drawing.Color.Gray;
-            this.stateCheckGround.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateCheckGround.LampColorOn = System.Drawing.Color.Red;
-            this.stateCheckGround.Location = new System.Drawing.Point(7, 126);
-            this.stateCheckGround.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.stateCheckGround.Name = "stateCheckGround";
-            this.stateCheckGround.Size = new System.Drawing.Size(223, 21);
-            this.stateCheckGround.State = null;
-            this.stateCheckGround.TabIndex = 0;
-            // 
-            // stateCheckLevel
-            // 
-            this.stateCheckLevel.Caption = "контроль уровнемера";
-            this.stateCheckLevel.CaptionAtRight = false;
-            this.stateCheckLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateCheckLevel.LampColorNone = System.Drawing.Color.Gray;
-            this.stateCheckLevel.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateCheckLevel.LampColorOn = System.Drawing.Color.Red;
-            this.stateCheckLevel.Location = new System.Drawing.Point(7, 147);
-            this.stateCheckLevel.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.stateCheckLevel.Name = "stateCheckLevel";
-            this.stateCheckLevel.Size = new System.Drawing.Size(223, 21);
-            this.stateCheckLevel.State = null;
-            this.stateCheckLevel.TabIndex = 0;
-            // 
-            // stateHandButton
-            // 
-            this.stateHandButton.Caption = "кнопка Автономно";
-            this.stateHandButton.CaptionAtRight = false;
-            this.stateHandButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateHandButton.LampColorNone = System.Drawing.Color.Gray;
-            this.stateHandButton.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateHandButton.LampColorOn = System.Drawing.Color.Blue;
-            this.stateHandButton.Location = new System.Drawing.Point(7, 168);
-            this.stateHandButton.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.stateHandButton.Name = "stateHandButton";
-            this.stateHandButton.Size = new System.Drawing.Size(223, 21);
-            this.stateHandButton.State = null;
-            this.stateHandButton.TabIndex = 0;
-            // 
-            // stateAlarmLevel
-            // 
-            this.stateAlarmLevel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateAlarmLevel.Caption = "сигнализатор аварийный";
-            this.stateAlarmLevel.CaptionAtRight = false;
-            this.stateAlarmLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateAlarmLevel.LampColorNone = System.Drawing.Color.Gray;
-            this.stateAlarmLevel.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateAlarmLevel.LampColorOn = System.Drawing.Color.Red;
-            this.stateAlarmLevel.Location = new System.Drawing.Point(238, 21);
-            this.stateAlarmLevel.Margin = new System.Windows.Forms.Padding(0);
-            this.stateAlarmLevel.Name = "stateAlarmLevel";
-            this.stateAlarmLevel.Size = new System.Drawing.Size(226, 21);
-            this.stateAlarmLevel.State = null;
-            this.stateAlarmLevel.TabIndex = 0;
-            // 
-            // stateAlarmLevelMax
-            // 
-            this.stateAlarmLevelMax.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateAlarmLevelMax.Caption = "сигнализатор аварийный max";
-            this.stateAlarmLevelMax.CaptionAtRight = false;
-            this.stateAlarmLevelMax.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateAlarmLevelMax.LampColorNone = System.Drawing.Color.Gray;
-            this.stateAlarmLevelMax.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateAlarmLevelMax.LampColorOn = System.Drawing.Color.Red;
-            this.stateAlarmLevelMax.Location = new System.Drawing.Point(238, 42);
-            this.stateAlarmLevelMax.Margin = new System.Windows.Forms.Padding(0);
-            this.stateAlarmLevelMax.Name = "stateAlarmLevelMax";
-            this.stateAlarmLevelMax.Size = new System.Drawing.Size(229, 21);
-            this.stateAlarmLevelMax.State = null;
-            this.stateAlarmLevelMax.TabIndex = 0;
-            // 
-            // stateAlarmLevelMin
-            // 
-            this.stateAlarmLevelMin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateAlarmLevelMin.Caption = "сигнализатор аварийный min";
-            this.stateAlarmLevelMin.CaptionAtRight = false;
-            this.stateAlarmLevelMin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateAlarmLevelMin.LampColorNone = System.Drawing.Color.Gray;
-            this.stateAlarmLevelMin.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateAlarmLevelMin.LampColorOn = System.Drawing.Color.Red;
-            this.stateAlarmLevelMin.Location = new System.Drawing.Point(238, 63);
-            this.stateAlarmLevelMin.Margin = new System.Windows.Forms.Padding(0);
-            this.stateAlarmLevelMin.Name = "stateAlarmLevelMin";
-            this.stateAlarmLevelMin.Size = new System.Drawing.Size(226, 21);
-            this.stateAlarmLevelMin.State = null;
-            this.stateAlarmLevelMin.TabIndex = 0;
-            // 
-            // stateAnalogLevelMax
-            // 
-            this.stateAnalogLevelMax.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateAnalogLevelMax.Caption = "сигнализатор уровня max";
-            this.stateAnalogLevelMax.CaptionAtRight = false;
-            this.stateAnalogLevelMax.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateAnalogLevelMax.LampColorNone = System.Drawing.Color.Gray;
-            this.stateAnalogLevelMax.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateAnalogLevelMax.LampColorOn = System.Drawing.Color.Red;
-            this.stateAnalogLevelMax.Location = new System.Drawing.Point(238, 84);
-            this.stateAnalogLevelMax.Margin = new System.Windows.Forms.Padding(0);
-            this.stateAnalogLevelMax.Name = "stateAnalogLevelMax";
-            this.stateAnalogLevelMax.Size = new System.Drawing.Size(198, 21);
-            this.stateAnalogLevelMax.State = null;
-            this.stateAnalogLevelMax.TabIndex = 0;
-            // 
-            // stateAnalogLevelMin
-            // 
-            this.stateAnalogLevelMin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateAnalogLevelMin.Caption = "сигнализатор уровня min";
-            this.stateAnalogLevelMin.CaptionAtRight = false;
-            this.stateAnalogLevelMin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateAnalogLevelMin.LampColorNone = System.Drawing.Color.Gray;
-            this.stateAnalogLevelMin.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateAnalogLevelMin.LampColorOn = System.Drawing.Color.Red;
-            this.stateAnalogLevelMin.Location = new System.Drawing.Point(238, 105);
-            this.stateAnalogLevelMin.Margin = new System.Windows.Forms.Padding(0);
-            this.stateAnalogLevelMin.Name = "stateAnalogLevelMin";
-            this.stateAnalogLevelMin.Size = new System.Drawing.Size(226, 21);
-            this.stateAnalogLevelMin.State = null;
-            this.stateAnalogLevelMin.TabIndex = 0;
-            // 
-            // stateStopButton
-            // 
-            this.stateStopButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateStopButton.Caption = "кнопка Стоп";
-            this.stateStopButton.CaptionAtRight = false;
-            this.stateStopButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateStopButton.LampColorNone = System.Drawing.Color.Gray;
-            this.stateStopButton.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateStopButton.LampColorOn = System.Drawing.Color.Red;
-            this.stateStopButton.Location = new System.Drawing.Point(238, 126);
-            this.stateStopButton.Margin = new System.Windows.Forms.Padding(0);
-            this.stateStopButton.Name = "stateStopButton";
-            this.stateStopButton.Size = new System.Drawing.Size(226, 21);
-            this.stateStopButton.State = null;
-            this.stateStopButton.TabIndex = 0;
-            // 
-            // stateReadyError
-            // 
-            this.stateReadyError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateReadyError.Caption = "цепь готовности неисправна";
-            this.stateReadyError.CaptionAtRight = false;
-            this.stateReadyError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateReadyError.LampColorNone = System.Drawing.Color.Gray;
-            this.stateReadyError.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateReadyError.LampColorOn = System.Drawing.Color.Red;
-            this.stateReadyError.Location = new System.Drawing.Point(238, 147);
-            this.stateReadyError.Margin = new System.Windows.Forms.Padding(0);
-            this.stateReadyError.Name = "stateReadyError";
-            this.stateReadyError.Size = new System.Drawing.Size(226, 21);
-            this.stateReadyError.State = null;
-            this.stateReadyError.TabIndex = 0;
-            // 
-            // stateBigValveError
-            // 
-            this.stateBigValveError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.stateBigValveError.Caption = "ошибка большого клапана";
-            this.stateBigValveError.CaptionAtRight = false;
-            this.stateBigValveError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stateBigValveError.LampColorNone = System.Drawing.Color.Gray;
-            this.stateBigValveError.LampColorOff = System.Drawing.SystemColors.Control;
-            this.stateBigValveError.LampColorOn = System.Drawing.Color.Red;
-            this.stateBigValveError.Location = new System.Drawing.Point(238, 168);
-            this.stateBigValveError.Margin = new System.Windows.Forms.Padding(0);
-            this.stateBigValveError.Name = "stateBigValveError";
-            this.stateBigValveError.Size = new System.Drawing.Size(226, 21);
-            this.stateBigValveError.State = null;
-            this.stateBigValveError.TabIndex = 0;
             // 
             // tableLayoutPanel6
             // 
@@ -991,7 +685,7 @@
             this.tableLayoutPanel6.Controls.Add(this.stateBigValve, 0, 2);
             this.tableLayoutPanel6.Controls.Add(this.stateSmallValve, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.stateSmallValveError, 1, 9);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 3);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(5, 77);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 12;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
@@ -1006,13 +700,333 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(477, 254);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(477, 250);
             this.tableLayoutPanel6.TabIndex = 1;
+            // 
+            // stateLevelError
+            // 
+            this.stateLevelError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateLevelError.Caption = "сигнал. уровня не исправен";
+            this.stateLevelError.CaptionAtRight = false;
+            this.stateLevelError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateLevelError.LampColorNone = System.Drawing.Color.Gray;
+            this.stateLevelError.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateLevelError.LampColorOn = System.Drawing.Color.Red;
+            this.stateLevelError.Location = new System.Drawing.Point(238, 220);
+            this.stateLevelError.Margin = new System.Windows.Forms.Padding(0);
+            this.stateLevelError.Name = "stateLevelError";
+            this.stateLevelError.Size = new System.Drawing.Size(229, 30);
+            this.stateLevelError.State = null;
+            this.stateLevelError.TabIndex = 0;
+            // 
+            // stateGroundError
+            // 
+            this.stateGroundError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateGroundError.Caption = "заземление отсутствует";
+            this.stateGroundError.CaptionAtRight = false;
+            this.stateGroundError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateGroundError.LampColorNone = System.Drawing.Color.Gray;
+            this.stateGroundError.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateGroundError.LampColorOn = System.Drawing.Color.Red;
+            this.stateGroundError.Location = new System.Drawing.Point(238, 200);
+            this.stateGroundError.Margin = new System.Windows.Forms.Padding(0);
+            this.stateGroundError.Name = "stateGroundError";
+            this.stateGroundError.Size = new System.Drawing.Size(226, 20);
+            this.stateGroundError.State = null;
+            this.stateGroundError.TabIndex = 0;
+            // 
+            // stateBigValveError
+            // 
+            this.stateBigValveError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateBigValveError.Caption = "ошибка большого клапана";
+            this.stateBigValveError.CaptionAtRight = false;
+            this.stateBigValveError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateBigValveError.LampColorNone = System.Drawing.Color.Gray;
+            this.stateBigValveError.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateBigValveError.LampColorOn = System.Drawing.Color.Red;
+            this.stateBigValveError.Location = new System.Drawing.Point(238, 160);
+            this.stateBigValveError.Margin = new System.Windows.Forms.Padding(0);
+            this.stateBigValveError.Name = "stateBigValveError";
+            this.stateBigValveError.Size = new System.Drawing.Size(226, 20);
+            this.stateBigValveError.State = null;
+            this.stateBigValveError.TabIndex = 0;
+            // 
+            // stateReadyError
+            // 
+            this.stateReadyError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateReadyError.Caption = "цепь готовности неисправна";
+            this.stateReadyError.CaptionAtRight = false;
+            this.stateReadyError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateReadyError.LampColorNone = System.Drawing.Color.Gray;
+            this.stateReadyError.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateReadyError.LampColorOn = System.Drawing.Color.Red;
+            this.stateReadyError.Location = new System.Drawing.Point(238, 140);
+            this.stateReadyError.Margin = new System.Windows.Forms.Padding(0);
+            this.stateReadyError.Name = "stateReadyError";
+            this.stateReadyError.Size = new System.Drawing.Size(226, 20);
+            this.stateReadyError.State = null;
+            this.stateReadyError.TabIndex = 0;
+            // 
+            // stateStopButton
+            // 
+            this.stateStopButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateStopButton.Caption = "кнопка Стоп";
+            this.stateStopButton.CaptionAtRight = false;
+            this.stateStopButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateStopButton.LampColorNone = System.Drawing.Color.Gray;
+            this.stateStopButton.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateStopButton.LampColorOn = System.Drawing.Color.Red;
+            this.stateStopButton.Location = new System.Drawing.Point(238, 120);
+            this.stateStopButton.Margin = new System.Windows.Forms.Padding(0);
+            this.stateStopButton.Name = "stateStopButton";
+            this.stateStopButton.Size = new System.Drawing.Size(226, 20);
+            this.stateStopButton.State = null;
+            this.stateStopButton.TabIndex = 0;
+            // 
+            // stateAnalogLevelMin
+            // 
+            this.stateAnalogLevelMin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateAnalogLevelMin.Caption = "сигнализатор уровня min";
+            this.stateAnalogLevelMin.CaptionAtRight = false;
+            this.stateAnalogLevelMin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateAnalogLevelMin.LampColorNone = System.Drawing.Color.Gray;
+            this.stateAnalogLevelMin.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateAnalogLevelMin.LampColorOn = System.Drawing.Color.Red;
+            this.stateAnalogLevelMin.Location = new System.Drawing.Point(238, 100);
+            this.stateAnalogLevelMin.Margin = new System.Windows.Forms.Padding(0);
+            this.stateAnalogLevelMin.Name = "stateAnalogLevelMin";
+            this.stateAnalogLevelMin.Size = new System.Drawing.Size(226, 20);
+            this.stateAnalogLevelMin.State = null;
+            this.stateAnalogLevelMin.TabIndex = 0;
+            // 
+            // stateAnalogLevelMax
+            // 
+            this.stateAnalogLevelMax.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateAnalogLevelMax.Caption = "сигнализатор уровня max";
+            this.stateAnalogLevelMax.CaptionAtRight = false;
+            this.stateAnalogLevelMax.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateAnalogLevelMax.LampColorNone = System.Drawing.Color.Gray;
+            this.stateAnalogLevelMax.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateAnalogLevelMax.LampColorOn = System.Drawing.Color.Red;
+            this.stateAnalogLevelMax.Location = new System.Drawing.Point(238, 80);
+            this.stateAnalogLevelMax.Margin = new System.Windows.Forms.Padding(0);
+            this.stateAnalogLevelMax.Name = "stateAnalogLevelMax";
+            this.stateAnalogLevelMax.Size = new System.Drawing.Size(198, 20);
+            this.stateAnalogLevelMax.State = null;
+            this.stateAnalogLevelMax.TabIndex = 0;
+            // 
+            // stateAlarmLevelMin
+            // 
+            this.stateAlarmLevelMin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateAlarmLevelMin.Caption = "сигнализатор аварийный min";
+            this.stateAlarmLevelMin.CaptionAtRight = false;
+            this.stateAlarmLevelMin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateAlarmLevelMin.LampColorNone = System.Drawing.Color.Gray;
+            this.stateAlarmLevelMin.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateAlarmLevelMin.LampColorOn = System.Drawing.Color.Red;
+            this.stateAlarmLevelMin.Location = new System.Drawing.Point(238, 60);
+            this.stateAlarmLevelMin.Margin = new System.Windows.Forms.Padding(0);
+            this.stateAlarmLevelMin.Name = "stateAlarmLevelMin";
+            this.stateAlarmLevelMin.Size = new System.Drawing.Size(226, 20);
+            this.stateAlarmLevelMin.State = null;
+            this.stateAlarmLevelMin.TabIndex = 0;
+            // 
+            // stateAlarmLevelMax
+            // 
+            this.stateAlarmLevelMax.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateAlarmLevelMax.Caption = "сигнализатор аварийный max";
+            this.stateAlarmLevelMax.CaptionAtRight = false;
+            this.stateAlarmLevelMax.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateAlarmLevelMax.LampColorNone = System.Drawing.Color.Gray;
+            this.stateAlarmLevelMax.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateAlarmLevelMax.LampColorOn = System.Drawing.Color.Red;
+            this.stateAlarmLevelMax.Location = new System.Drawing.Point(238, 40);
+            this.stateAlarmLevelMax.Margin = new System.Windows.Forms.Padding(0);
+            this.stateAlarmLevelMax.Name = "stateAlarmLevelMax";
+            this.stateAlarmLevelMax.Size = new System.Drawing.Size(229, 20);
+            this.stateAlarmLevelMax.State = null;
+            this.stateAlarmLevelMax.TabIndex = 0;
+            // 
+            // stateAlarmLevel
+            // 
+            this.stateAlarmLevel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateAlarmLevel.Caption = "сигнализатор аварийный";
+            this.stateAlarmLevel.CaptionAtRight = false;
+            this.stateAlarmLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateAlarmLevel.LampColorNone = System.Drawing.Color.Gray;
+            this.stateAlarmLevel.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateAlarmLevel.LampColorOn = System.Drawing.Color.Red;
+            this.stateAlarmLevel.Location = new System.Drawing.Point(238, 20);
+            this.stateAlarmLevel.Margin = new System.Windows.Forms.Padding(0);
+            this.stateAlarmLevel.Name = "stateAlarmLevel";
+            this.stateAlarmLevel.Size = new System.Drawing.Size(226, 20);
+            this.stateAlarmLevel.State = null;
+            this.stateAlarmLevel.TabIndex = 0;
+            // 
+            // stateHandButton
+            // 
+            this.stateHandButton.Caption = "кнопка Автономно";
+            this.stateHandButton.CaptionAtRight = false;
+            this.stateHandButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateHandButton.LampColorNone = System.Drawing.Color.Gray;
+            this.stateHandButton.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateHandButton.LampColorOn = System.Drawing.Color.Blue;
+            this.stateHandButton.Location = new System.Drawing.Point(7, 160);
+            this.stateHandButton.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.stateHandButton.Name = "stateHandButton";
+            this.stateHandButton.Size = new System.Drawing.Size(223, 20);
+            this.stateHandButton.State = null;
+            this.stateHandButton.TabIndex = 0;
+            // 
+            // stateCheckLevel
+            // 
+            this.stateCheckLevel.Caption = "контроль уровнемера";
+            this.stateCheckLevel.CaptionAtRight = false;
+            this.stateCheckLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateCheckLevel.LampColorNone = System.Drawing.Color.Gray;
+            this.stateCheckLevel.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateCheckLevel.LampColorOn = System.Drawing.Color.Red;
+            this.stateCheckLevel.Location = new System.Drawing.Point(7, 140);
+            this.stateCheckLevel.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.stateCheckLevel.Name = "stateCheckLevel";
+            this.stateCheckLevel.Size = new System.Drawing.Size(223, 20);
+            this.stateCheckLevel.State = null;
+            this.stateCheckLevel.TabIndex = 0;
+            // 
+            // stateCheckGround
+            // 
+            this.stateCheckGround.Caption = "контроль заземления";
+            this.stateCheckGround.CaptionAtRight = false;
+            this.stateCheckGround.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateCheckGround.LampColorNone = System.Drawing.Color.Gray;
+            this.stateCheckGround.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateCheckGround.LampColorOn = System.Drawing.Color.Red;
+            this.stateCheckGround.Location = new System.Drawing.Point(7, 120);
+            this.stateCheckGround.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.stateCheckGround.Name = "stateCheckGround";
+            this.stateCheckGround.Size = new System.Drawing.Size(223, 20);
+            this.stateCheckGround.State = null;
+            this.stateCheckGround.TabIndex = 0;
+            // 
+            // stateWorkPosition
+            // 
+            this.stateWorkPosition.Caption = "конечник рабочего положения";
+            this.stateWorkPosition.CaptionAtRight = false;
+            this.stateWorkPosition.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateWorkPosition.LampColorNone = System.Drawing.Color.Gray;
+            this.stateWorkPosition.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateWorkPosition.LampColorOn = System.Drawing.Color.Lime;
+            this.stateWorkPosition.Location = new System.Drawing.Point(7, 100);
+            this.stateWorkPosition.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.stateWorkPosition.Name = "stateWorkPosition";
+            this.stateWorkPosition.Size = new System.Drawing.Size(223, 20);
+            this.stateWorkPosition.State = null;
+            this.stateWorkPosition.TabIndex = 0;
+            // 
+            // stateReady
+            // 
+            this.stateReady.Caption = "цепь готовности";
+            this.stateReady.CaptionAtRight = false;
+            this.stateReady.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateReady.LampColorNone = System.Drawing.Color.Gray;
+            this.stateReady.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateReady.LampColorOn = System.Drawing.Color.Lime;
+            this.stateReady.Location = new System.Drawing.Point(7, 80);
+            this.stateReady.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.stateReady.Name = "stateReady";
+            this.stateReady.Size = new System.Drawing.Size(224, 20);
+            this.stateReady.State = null;
+            this.stateReady.TabIndex = 0;
+            // 
+            // stateStartButton
+            // 
+            this.stateStartButton.Caption = "кнопка Пуск";
+            this.stateStartButton.CaptionAtRight = false;
+            this.stateStartButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateStartButton.LampColorNone = System.Drawing.Color.Gray;
+            this.stateStartButton.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateStartButton.LampColorOn = System.Drawing.Color.Red;
+            this.stateStartButton.Location = new System.Drawing.Point(7, 20);
+            this.stateStartButton.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.stateStartButton.Name = "stateStartButton";
+            this.stateStartButton.Size = new System.Drawing.Size(223, 20);
+            this.stateStartButton.State = null;
+            this.stateStartButton.TabIndex = 0;
+            // 
+            // stateBigValve
+            // 
+            this.stateBigValve.Caption = "конечник большого клапана";
+            this.stateBigValve.CaptionAtRight = false;
+            this.stateBigValve.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateBigValve.LampColorNone = System.Drawing.Color.Gray;
+            this.stateBigValve.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateBigValve.LampColorOn = System.Drawing.Color.Lime;
+            this.stateBigValve.Location = new System.Drawing.Point(7, 40);
+            this.stateBigValve.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.stateBigValve.Name = "stateBigValve";
+            this.stateBigValve.Size = new System.Drawing.Size(223, 20);
+            this.stateBigValve.State = null;
+            this.stateBigValve.TabIndex = 0;
+            // 
+            // stateSmallValve
+            // 
+            this.stateSmallValve.Caption = "конечник малого клапана";
+            this.stateSmallValve.CaptionAtRight = false;
+            this.stateSmallValve.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateSmallValve.LampColorNone = System.Drawing.Color.Gray;
+            this.stateSmallValve.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateSmallValve.LampColorOn = System.Drawing.Color.Lime;
+            this.stateSmallValve.Location = new System.Drawing.Point(7, 60);
+            this.stateSmallValve.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.stateSmallValve.Name = "stateSmallValve";
+            this.stateSmallValve.Size = new System.Drawing.Size(223, 20);
+            this.stateSmallValve.State = null;
+            this.stateSmallValve.TabIndex = 0;
+            // 
+            // stateSmallValveError
+            // 
+            this.stateSmallValveError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stateSmallValveError.Caption = "ошибка малого клапана";
+            this.stateSmallValveError.CaptionAtRight = false;
+            this.stateSmallValveError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stateSmallValveError.LampColorNone = System.Drawing.Color.Gray;
+            this.stateSmallValveError.LampColorOff = System.Drawing.SystemColors.Control;
+            this.stateSmallValveError.LampColorOn = System.Drawing.Color.Red;
+            this.stateSmallValveError.Location = new System.Drawing.Point(238, 180);
+            this.stateSmallValveError.Margin = new System.Windows.Forms.Padding(0);
+            this.stateSmallValveError.Name = "stateSmallValveError";
+            this.stateSmallValveError.Size = new System.Drawing.Size(226, 20);
+            this.stateSmallValveError.State = null;
+            this.stateSmallValveError.TabIndex = 0;
+            // 
+            // listBox1
+            // 
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(5, 7);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(233, 45);
+            this.listBox1.TabIndex = 2;
+            this.listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
             // 
             // RiserStatusControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -1096,5 +1110,6 @@
         private UcRiserOneState stopKind15;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
