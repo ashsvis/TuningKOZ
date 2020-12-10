@@ -58,5 +58,17 @@ namespace TuningKOZ.Properties {
                 this["Parity"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("247")]
+        public int SlaveID {
+            get {
+                return ((int)(this["SlaveID"]));
+            }
+            set {
+                this["SlaveID"] = value;
+            }
+        }
     }
 }

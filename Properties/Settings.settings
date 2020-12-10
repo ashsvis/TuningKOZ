@@ -11,5 +11,8 @@
     <Setting Name="Parity" Type="System.String" Scope="User">
       <Value Profile="(Default)">None</Value>
     </Setting>
+    <Setting Name="SlaveID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">247</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

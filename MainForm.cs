@@ -42,6 +42,11 @@ namespace TuningKOZ
             cbParity.Text = Properties.Settings.Default.Parity;
             if (Enum.TryParse(cbParity.Text, out Parity parity))
                 modbusSerialPort1.Parity = parity;
+            var anodes = Enumerable.Range(1, 247).Select(item => (object)item).ToArray();
+            cbSlaveID.Items.AddRange(anodes);
+            var slaveID = Properties.Settings.Default.SlaveID;
+            cbSlaveID.Text = slaveID.ToString();
+            modbusSerialPort1.Node = slaveID;
             Fetch();
         }
 
@@ -116,6 +121,15 @@ namespace TuningKOZ
             Properties.Settings.Default.Parity = cbParity.Text;
             Properties.Settings.Default.Save();
             modbusSerialPort1.Parity = parity;
+            Fetch();
+        }
+
+        private void cbSlaveID_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (!int.TryParse(cbSlaveID.Text, out int slaveID)) return;
+            Properties.Settings.Default.SlaveID = slaveID;
+            Properties.Settings.Default.Save();
+            modbusSerialPort1.Node = slaveID;
             Fetch();
         }
     }
