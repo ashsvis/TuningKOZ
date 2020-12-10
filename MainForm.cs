@@ -8,11 +8,21 @@ namespace TuningKOZ
         public MainForm()
         {
             InitializeComponent();
+            riserTuningLink.OnWrite += RiserTuning_OnWrite;
+            riserTuningPlc.OnWrite += RiserTuning_OnWrite;
+            riserTuningAdc.OnWrite += RiserTuning_OnWrite;
+            riserTuningAlarmLevel.OnWrite += RiserTuning_OnWrite;
+            riserTuningAnalogLevel.OnWrite += RiserTuning_OnWrite;
+        }
+
+        private void RiserTuning_OnWrite(int address, int regcount, ushort[] hregs, string[] changelogdata = null)
+        {
+            modbusSerialPort1.WriteModbusData(address, hregs);
         }
 
         private void Fetch()
         {
-            modbusSerialPort1.Fetch();
+            modbusSerialPort1.FetchModbusData();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

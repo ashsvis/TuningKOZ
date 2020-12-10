@@ -35,7 +35,7 @@ namespace TuningKOZ.View
         public ushort[] FetchVals { get; private set; }
         public int ErrorCode { get; private set; }
 
-        public void Fetch()
+        public void FetchModbusData()
         {
             RegCount = 0;
             FetchVals = new ushort[RegCount];
@@ -49,14 +49,62 @@ namespace TuningKOZ.View
             sendBytes[sendBytes.Length - 1] = crc[1];
             ErrorCode = 0;
             buff.Clear();
-            if (!IsOpen)
-                Open();
-            if (IsOpen)
+            try
             {
-                DiscardInBuffer();
-                DiscardOutBuffer();
-                Write(sendBytes, 0, sendBytes.Length);
+                if (!IsOpen)
+                    Open();
+                if (IsOpen)
+                {
+                    DiscardInBuffer();
+                    DiscardOutBuffer();
+                    Write(sendBytes, 0, sendBytes.Length);
+                }
             }
+            catch (Exception)
+            {
+            }
+        }
+
+        public void WriteModbusData(int writeaddress, ushort[] writedata)
+        {
+            var buff = new List<byte>();
+            try
+            {
+                if (!IsOpen)
+                    Open();
+                if (IsOpen)
+                {
+                    var list = new List<byte>();
+                    list.AddRange(new[] { (byte)Node, (byte)16 });
+                    list.AddRange(BitConverter.GetBytes(Swap((ushort)writeaddress)));
+                    var datacount = writedata.Length;
+                    list.AddRange(BitConverter.GetBytes(Swap((ushort)datacount)));
+                    list.Add((byte)(datacount * 2));
+                    foreach (var writeval in writedata)
+                        list.AddRange(BitConverter.GetBytes(Swap(writeval)));
+                    list.AddRange(new byte[] { 0, 0 }); // место для контрольной суммы
+                    var sendBytes = list.ToArray();
+                    var crc = BitConverter.GetBytes(Crc(list.ToArray(), list.Count - 2));
+                    sendBytes[sendBytes.Length - 2] = crc[0];
+                    sendBytes[sendBytes.Length - 1] = crc[1];
+
+                    DiscardInBuffer();
+                    DiscardOutBuffer();
+                    Write(sendBytes, 0, sendBytes.Length);
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private static ushort Swap(ushort value)
+        {
+            var bytes = BitConverter.GetBytes(value);
+            var buff = bytes[0];
+            bytes[0] = bytes[1];
+            bytes[1] = buff;
+            return BitConverter.ToUInt16(bytes, 0);
         }
 
         private static byte[] EncodeData(params byte[] list)
@@ -155,6 +203,7 @@ namespace TuningKOZ.View
             add { modbusErrorReceived += value; }
             remove { modbusErrorReceived -= value; }
         }
+
     }
 
     public class ModbusEventArgs : EventArgs
