@@ -35,7 +35,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.riserTuningLink = new TuningKOZ.RiserTuningLinkControl();
             this.riserTuningPlc = new TuningKOZ.RiserTuningPlcControl();
             this.riserTuningAdc = new TuningKOZ.RiserTuningAdcControl();
@@ -121,12 +120,6 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Аналоговый уровень";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // riserTuningLink
             // 
@@ -214,7 +207,6 @@
             this.modbusSerialPort1.ModbusDataReceived += new TuningKOZ.View.ModbusEventHandler(this.modbusSerialPort1_ModbusDataReceived);
             this.modbusSerialPort1.ModbusErrorReceived += new TuningKOZ.View.ModbusErrorHandler(this.modbusSerialPort1_ModbusErrorReceived);
             this.modbusSerialPort1.ModbusCommandOk += new System.EventHandler(this.modbusSerialPort1_ModbusCommandOk);
-            this.modbusSerialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.modbusSerialPort1_ErrorReceived);
             // 
             // MainForm
             // 
@@ -253,7 +245,6 @@
         private System.Windows.Forms.TabPage tabPage5;
         private RiserTuningAnalogLevelControl riserTuningAnalogLevel;
         private View.ModbusSerialPort modbusSerialPort1;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 

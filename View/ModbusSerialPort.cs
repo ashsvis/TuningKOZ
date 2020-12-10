@@ -24,7 +24,6 @@ namespace TuningKOZ.View
         private void InitializeEvents()
         {
             DataReceived += ModbusSerialPort_DataReceived;
-            ErrorReceived += ModbusSerialPort_ErrorReceived;
         }
 
         public int Node { get; set; }
@@ -141,6 +140,11 @@ namespace TuningKOZ.View
             return result;
         }
 
+        /// <summary>
+        /// Внутренний обработчик принимаемых данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ModbusSerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             var buff = new List<byte>();
@@ -169,15 +173,12 @@ namespace TuningKOZ.View
                         FetchVals[i] = BitConverter.ToUInt16(raw, 0);
                         n += 2;
                     }
-
-                    Console.WriteLine(string.Join("\t", FetchVals));
-                    //
                     modbusDataReceived?.Invoke(this, new ModbusEventArgs(FetchVals));
                 }
                 else
                 {
                     // ошибка контрольной суммы
-                    modbusErrorReceived?.Invoke(this, new ModbusErrorArgs(-1));
+                    modbusErrorReceived?.Invoke(this, new ModbusErrorArgs("Ошибка контрольной суммы!"));
                 }
             }
             else
@@ -194,7 +195,7 @@ namespace TuningKOZ.View
                 else
                 {
                     // ошибка контрольной суммы
-                    modbusErrorReceived?.Invoke(this, new ModbusErrorArgs(-1));
+                    modbusErrorReceived?.Invoke(this, new ModbusErrorArgs("Ошибка контрольной суммы!"));
                 }
             }
             else
@@ -206,19 +207,34 @@ namespace TuningKOZ.View
                 if (crcCalc == crcBuff)
                 {
                     // возвращен код ошибки MODBUS
-                    modbusErrorReceived?.Invoke(this, new ModbusErrorArgs(buff[2]));
+                    modbusErrorReceived?.Invoke(this, new ModbusErrorArgs($"Код ошибки: {buff[2]}\n{DecodeErrorCode(buff[2])}"));
                 }
                 else
                 {
                     // ошибка контрольной суммы
-                    modbusErrorReceived?.Invoke(this, new ModbusErrorArgs(-1));
+                    modbusErrorReceived?.Invoke(this, new ModbusErrorArgs("Ошибка контрольной суммы!"));
                 }
             }
         }
 
-        private void ModbusSerialPort_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
+        private object DecodeErrorCode(byte code)
         {
-            //throw new NotImplementedException();
+            switch (code)
+            {
+                case 1: return "Принятый код функции не может быть обработан.";
+                case 2: return "Адрес данных, указанный в запросе, недоступен.";
+                case 3: return "Значение, содержащееся в поле данных запроса, является недопустимой величиной.";
+                case 4: return "Невосстанавливаемая ошибка имела место, пока ведомое устройство пыталось выполнить затребованное действие.";
+                case 5: return "Ведомое устройство приняло запрос и обрабатывает его, но это требует много времени.\nЭтот ответ предохраняет ведущее устройство от генерации ошибки тайм - аута.";
+                case 6: return "Ведомое устройство занято обработкой команды. Ведущее устройство должно повторить сообщение позже, когда ведомое освободится.";
+                case 7: return "Ведомое устройство не может выполнить программную функцию, заданную в запросе.\nЭтот код возвращается для неуспешного программного запроса, использующего функции с номерами 13 или 14.\nВедущее устройство должно запросить диагностическую информацию или информацию об ошибках от ведомого.";
+                case 8: return "Ведомое устройство при чтении расширенной памяти обнаружило ошибку паритета.\nВедущее устройство может повторить запрос, но обычно в таких случаях требуется ремонт.";
+                case 10: return "Шлюз неправильно настроен или перегружен запросами.";
+                case 11: return "Slave устройства нет в сети или от него нет ответа.";
+                default:
+                    return $"Код ошибки: {code}";
+            }
+
         }
 
         private event ModbusEventHandler modbusDataReceived;
@@ -268,11 +284,11 @@ namespace TuningKOZ.View
 
     public class ModbusErrorArgs : EventArgs
     {
-        public int ErrorCode { get; private set; }
+        public string Message { get; private set; }
 
-        public ModbusErrorArgs(int errorCode)
+        public ModbusErrorArgs(string message)
         {
-            ErrorCode = errorCode;
+            Message = message;
         }
     }
 

@@ -239,7 +239,7 @@
             // 
             // lbHR22
             // 
-            this.lbHR22.AutoEllipsis = true;
+            this.lbHR22.AutoSize = true;
             this.lbHR22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR22.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR22.Location = new System.Drawing.Point(137, 0);
@@ -268,7 +268,7 @@
             // 
             // lbHR24
             // 
-            this.lbHR24.AutoEllipsis = true;
+            this.lbHR24.AutoSize = true;
             this.lbHR24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR24.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR24.Location = new System.Drawing.Point(339, 0);
@@ -293,11 +293,12 @@
             // 
             // lbHR26
             // 
-            this.lbHR26.AutoEllipsis = true;
+            this.lbHR26.AutoSize = true;
+            this.lbHR26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR26.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR26.Location = new System.Drawing.Point(242, 112);
             this.lbHR26.Name = "lbHR26";
-            this.lbHR26.Size = new System.Drawing.Size(91, 18);
+            this.lbHR26.Size = new System.Drawing.Size(91, 24);
             this.lbHR26.TabIndex = 3;
             this.lbHR26.Text = "------";
             this.lbHR26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -326,11 +327,12 @@
             // 
             // lbHR14_0
             // 
-            this.lbHR14_0.AutoEllipsis = true;
+            this.lbHR14_0.AutoSize = true;
+            this.lbHR14_0.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR14_0.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR14_0.Location = new System.Drawing.Point(242, 136);
             this.lbHR14_0.Name = "lbHR14_0";
-            this.lbHR14_0.Size = new System.Drawing.Size(91, 18);
+            this.lbHR14_0.Size = new System.Drawing.Size(91, 24);
             this.lbHR14_0.TabIndex = 3;
             this.lbHR14_0.Text = "------";
             this.lbHR14_0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -377,7 +379,7 @@
             // 
             // lbHR28
             // 
-            this.lbHR28.AutoEllipsis = true;
+            this.lbHR28.AutoSize = true;
             this.lbHR28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR28.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR28.Location = new System.Drawing.Point(242, 18);
@@ -403,7 +405,7 @@
             // 
             // lbHR29
             // 
-            this.lbHR29.AutoEllipsis = true;
+            this.lbHR29.AutoSize = true;
             this.lbHR29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR29.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR29.Location = new System.Drawing.Point(242, 51);
@@ -524,7 +526,7 @@
             // 
             // lbHR23
             // 
-            this.lbHR23.AutoEllipsis = true;
+            this.lbHR23.AutoSize = true;
             this.lbHR23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR23.Location = new System.Drawing.Point(139, 0);
@@ -553,7 +555,7 @@
             // 
             // lbHR25
             // 
-            this.lbHR25.AutoEllipsis = true;
+            this.lbHR25.AutoSize = true;
             this.lbHR25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR25.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR25.Location = new System.Drawing.Point(339, 0);
@@ -578,11 +580,12 @@
             // 
             // lbHR27
             // 
-            this.lbHR27.AutoEllipsis = true;
+            this.lbHR27.AutoSize = true;
+            this.lbHR27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR27.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR27.Location = new System.Drawing.Point(242, 112);
             this.lbHR27.Name = "lbHR27";
-            this.lbHR27.Size = new System.Drawing.Size(91, 18);
+            this.lbHR27.Size = new System.Drawing.Size(91, 24);
             this.lbHR27.TabIndex = 3;
             this.lbHR27.Text = "------";
             this.lbHR27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -611,11 +614,12 @@
             // 
             // lbHR14_4
             // 
-            this.lbHR14_4.AutoEllipsis = true;
+            this.lbHR14_4.AutoSize = true;
+            this.lbHR14_4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR14_4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR14_4.Location = new System.Drawing.Point(242, 136);
             this.lbHR14_4.Name = "lbHR14_4";
-            this.lbHR14_4.Size = new System.Drawing.Size(91, 18);
+            this.lbHR14_4.Size = new System.Drawing.Size(91, 24);
             this.lbHR14_4.TabIndex = 3;
             this.lbHR14_4.Text = "------";
             this.lbHR14_4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -718,7 +722,7 @@
             // 
             // lbHR2A
             // 
-            this.lbHR2A.AutoEllipsis = true;
+            this.lbHR2A.AutoSize = true;
             this.lbHR2A.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR2A.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR2A.Location = new System.Drawing.Point(242, 18);
@@ -744,7 +748,7 @@
             // 
             // lbHR2B
             // 
-            this.lbHR2B.AutoEllipsis = true;
+            this.lbHR2B.AutoSize = true;
             this.lbHR2B.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbHR2B.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbHR2B.Location = new System.Drawing.Point(242, 51);
