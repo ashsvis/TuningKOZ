@@ -101,7 +101,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnRestoreADC0);
             this.flowLayoutPanel1.Controls.Add(this.btnEEPROMADC0);
             this.flowLayoutPanel1.Controls.Add(this.btnSaveADC0);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(62, 172);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(62, 167);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(304, 31);
@@ -153,11 +153,11 @@
             // 
             this.btnCopyADC0.Enabled = false;
             this.btnCopyADC0.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnCopyADC0.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCopyADC0.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCopyADC0.Location = new System.Drawing.Point(23, 2);
             this.btnCopyADC0.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCopyADC0.Name = "btnCopyADC0";
-            this.btnCopyADC0.Size = new System.Drawing.Size(97, 22);
+            this.btnCopyADC0.Size = new System.Drawing.Size(81, 19);
             this.btnCopyADC0.TabIndex = 3;
             this.btnCopyADC0.Text = "копировать>>>";
             this.btnCopyADC0.UseVisualStyleBackColor = true;
@@ -165,7 +165,8 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(126, 0);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(110, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(14, 24);
             this.label2.TabIndex = 11;
@@ -174,6 +175,7 @@
             // 
             // label1
             // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 24);
@@ -640,7 +642,7 @@
             this.flowLayoutPanel3.Controls.Add(this.btnRestoreADC1);
             this.flowLayoutPanel3.Controls.Add(this.btnEEPROMADC1);
             this.flowLayoutPanel3.Controls.Add(this.btnSaveADC1);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(62, 172);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(62, 167);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(304, 31);
@@ -784,6 +786,7 @@
             // 
             // label27
             // 
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label27.Location = new System.Drawing.Point(3, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(14, 24);
@@ -795,11 +798,11 @@
             // 
             this.btnCopyADC1.Enabled = false;
             this.btnCopyADC1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnCopyADC1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCopyADC1.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCopyADC1.Location = new System.Drawing.Point(23, 2);
             this.btnCopyADC1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCopyADC1.Name = "btnCopyADC1";
-            this.btnCopyADC1.Size = new System.Drawing.Size(97, 22);
+            this.btnCopyADC1.Size = new System.Drawing.Size(81, 19);
             this.btnCopyADC1.TabIndex = 3;
             this.btnCopyADC1.Text = "копировать>>>";
             this.btnCopyADC1.UseVisualStyleBackColor = true;
@@ -807,7 +810,8 @@
             // 
             // label28
             // 
-            this.label28.Location = new System.Drawing.Point(126, 0);
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label28.Location = new System.Drawing.Point(110, 0);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(14, 24);
             this.label28.TabIndex = 11;

@@ -41,6 +41,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.riserTuningAnalogLevel = new TuningKOZ.RiserTuningAnalogLevelControl();
             this.modbusSerialPort1 = new TuningKOZ.View.ModbusSerialPort(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -207,6 +208,12 @@
             this.modbusSerialPort1.ModbusDataReceived += new TuningKOZ.View.ModbusEventHandler(this.modbusSerialPort1_ModbusDataReceived);
             this.modbusSerialPort1.ModbusErrorReceived += new TuningKOZ.View.ModbusErrorHandler(this.modbusSerialPort1_ModbusErrorReceived);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -244,6 +251,7 @@
         private System.Windows.Forms.TabPage tabPage5;
         private RiserTuningAnalogLevelControl riserTuningAnalogLevel;
         private View.ModbusSerialPort modbusSerialPort1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

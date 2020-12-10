@@ -288,6 +288,7 @@
             // 
             // label2
             // 
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(336, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(14, 16);
@@ -298,11 +299,11 @@
             // 
             this.btnCopy.Enabled = false;
             this.btnCopy.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnCopy.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCopy.Location = new System.Drawing.Point(234, 6);
+            this.btnCopy.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCopy.Location = new System.Drawing.Point(244, 6);
             this.btnCopy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(97, 22);
+            this.btnCopy.Size = new System.Drawing.Size(78, 19);
             this.btnCopy.TabIndex = 1;
             this.btnCopy.Text = "копировать>>>";
             this.btnCopy.UseVisualStyleBackColor = true;
@@ -310,6 +311,7 @@
             // 
             // label1
             // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(214, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 16);
@@ -413,11 +415,11 @@
             // btnCopyFromStorage
             // 
             this.btnCopyFromStorage.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnCopyFromStorage.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCopyFromStorage.Location = new System.Drawing.Point(54, 5);
+            this.btnCopyFromStorage.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCopyFromStorage.Location = new System.Drawing.Point(64, 5);
             this.btnCopyFromStorage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCopyFromStorage.Name = "btnCopyFromStorage";
-            this.btnCopyFromStorage.Size = new System.Drawing.Size(155, 22);
+            this.btnCopyFromStorage.Size = new System.Drawing.Size(136, 19);
             this.btnCopyFromStorage.TabIndex = 0;
             this.btnCopyFromStorage.TabStop = false;
             this.btnCopyFromStorage.Text = "копировать из архива>>>";
