@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO.Ports;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace TuningKOZ
@@ -27,6 +29,19 @@ namespace TuningKOZ
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            cbPort.Items.AddRange(SerialPort.GetPortNames());
+            cbPort.Text = Properties.Settings.Default.PortName;
+            modbusSerialPort1.PortName = $"{cbPort.SelectedItem}";
+            var abaud = new object[] { 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, 76800, 115200, 230400 };
+            cbBaudRate.Items.AddRange(abaud);
+            cbBaudRate.Text = Properties.Settings.Default.BaudRate;
+            if (int.TryParse(cbBaudRate.Text, out int baudrate))
+                modbusSerialPort1.BaudRate = baudrate;
+            var aparity = Enum.GetNames(typeof(Parity)).Take(3).ToArray();
+            cbParity.Items.AddRange(aparity);
+            cbParity.Text = Properties.Settings.Default.Parity;
+            if (Enum.TryParse(cbParity.Text, out Parity parity))
+                modbusSerialPort1.Parity = parity;
             Fetch();
         }
 
@@ -77,5 +92,31 @@ namespace TuningKOZ
                 method();
         }
 
+        private void cbPort_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            modbusSerialPort1.Close();
+            Properties.Settings.Default.PortName = cbPort.Text;
+            Properties.Settings.Default.Save();
+            modbusSerialPort1.PortName = $"{cbPort.SelectedItem}";
+            Fetch();
+        }
+
+        private void cbBaudRate_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (!int.TryParse(cbBaudRate.Text, out int baudrate)) return;
+            Properties.Settings.Default.BaudRate = cbBaudRate.Text;
+            Properties.Settings.Default.Save();
+            modbusSerialPort1.BaudRate = baudrate;
+            Fetch();
+        }
+
+        private void cbParity_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (!Enum.TryParse(cbParity.Text, out Parity parity)) return;
+            Properties.Settings.Default.Parity = cbParity.Text;
+            Properties.Settings.Default.Save();
+            modbusSerialPort1.Parity = parity;
+            Fetch();
+        }
     }
 }

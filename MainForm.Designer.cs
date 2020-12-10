@@ -41,6 +41,12 @@
             this.riserTuningAlarmLevel = new TuningKOZ.RiserTuningAlarmLevelControl();
             this.riserTuningAnalogLevel = new TuningKOZ.RiserTuningAnalogLevelControl();
             this.modbusSerialPort1 = new TuningKOZ.View.ModbusSerialPort(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbPort = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbBaudRate = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbParity = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -59,11 +65,11 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(14, 14);
+            this.tabControl1.Location = new System.Drawing.Point(14, 55);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(471, 506);
-            this.tabControl1.TabIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(471, 503);
+            this.tabControl1.TabIndex = 2;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
@@ -72,7 +78,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(463, 478);
+            this.tabPage1.Size = new System.Drawing.Size(463, 475);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Параметры связи";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -94,7 +100,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(463, 478);
+            this.tabPage3.Size = new System.Drawing.Size(463, 475);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "ADC";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -130,7 +136,7 @@
             this.riserTuningLink.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.riserTuningLink.Name = "riserTuningLink";
             this.riserTuningLink.NodeType = 0;
-            this.riserTuningLink.Size = new System.Drawing.Size(457, 472);
+            this.riserTuningLink.Size = new System.Drawing.Size(457, 469);
             this.riserTuningLink.TabIndex = 0;
             // 
             // riserTuningPlc
@@ -145,7 +151,7 @@
             this.riserTuningPlc.Name = "riserTuningPlc";
             this.riserTuningPlc.NodeAddr = 0;
             this.riserTuningPlc.NodeType = 0;
-            this.riserTuningPlc.Size = new System.Drawing.Size(457, 474);
+            this.riserTuningPlc.Size = new System.Drawing.Size(457, 472);
             this.riserTuningPlc.TabIndex = 0;
             // 
             // riserTuningAdc
@@ -160,7 +166,7 @@
             this.riserTuningAdc.Name = "riserTuningAdc";
             this.riserTuningAdc.NodeAddr = 0;
             this.riserTuningAdc.NodeType = 0;
-            this.riserTuningAdc.Size = new System.Drawing.Size(457, 474);
+            this.riserTuningAdc.Size = new System.Drawing.Size(457, 469);
             this.riserTuningAdc.TabIndex = 0;
             // 
             // riserTuningAlarmLevel
@@ -175,7 +181,7 @@
             this.riserTuningAlarmLevel.Name = "riserTuningAlarmLevel";
             this.riserTuningAlarmLevel.NodeAddr = 0;
             this.riserTuningAlarmLevel.NodeType = 0;
-            this.riserTuningAlarmLevel.Size = new System.Drawing.Size(457, 474);
+            this.riserTuningAlarmLevel.Size = new System.Drawing.Size(457, 472);
             this.riserTuningAlarmLevel.TabIndex = 0;
             // 
             // riserTuningAnalogLevel
@@ -190,7 +196,7 @@
             this.riserTuningAnalogLevel.Name = "riserTuningAnalogLevel";
             this.riserTuningAnalogLevel.NodeAddr = 0;
             this.riserTuningAnalogLevel.NodeType = 0;
-            this.riserTuningAnalogLevel.Size = new System.Drawing.Size(457, 474);
+            this.riserTuningAnalogLevel.Size = new System.Drawing.Size(457, 472);
             this.riserTuningAnalogLevel.TabIndex = 0;
             // 
             // modbusSerialPort1
@@ -199,7 +205,6 @@
             this.modbusSerialPort1.DataCount = 61;
             this.modbusSerialPort1.Func = 3;
             this.modbusSerialPort1.Node = 247;
-            this.modbusSerialPort1.PortName = "COM5";
             this.modbusSerialPort1.ReadTimeout = 5000;
             this.modbusSerialPort1.RtsEnable = true;
             this.modbusSerialPort1.StopBits = System.IO.Ports.StopBits.Two;
@@ -208,11 +213,74 @@
             this.modbusSerialPort1.ModbusErrorReceived += new TuningKOZ.View.ModbusErrorHandler(this.modbusSerialPort1_ModbusErrorReceived);
             this.modbusSerialPort1.ModbusCommandOk += new System.EventHandler(this.modbusSerialPort1_ModbusCommandOk);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Порт связи:";
+            // 
+            // cbPort
+            // 
+            this.cbPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPort.FormattingEnabled = true;
+            this.cbPort.Location = new System.Drawing.Point(89, 12);
+            this.cbPort.Name = "cbPort";
+            this.cbPort.Size = new System.Drawing.Size(65, 23);
+            this.cbPort.TabIndex = 0;
+            this.cbPort.SelectionChangeCommitted += new System.EventHandler(this.cbPort_SelectionChangeCommitted);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(160, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Скорость:";
+            // 
+            // cbBaudRate
+            // 
+            this.cbBaudRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBaudRate.FormattingEnabled = true;
+            this.cbBaudRate.Location = new System.Drawing.Point(228, 12);
+            this.cbBaudRate.Name = "cbBaudRate";
+            this.cbBaudRate.Size = new System.Drawing.Size(68, 23);
+            this.cbBaudRate.TabIndex = 1;
+            this.cbBaudRate.SelectionChangeCommitted += new System.EventHandler(this.cbBaudRate_SelectionChangeCommitted);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(302, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 15);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Паритет:";
+            // 
+            // cbParity
+            // 
+            this.cbParity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbParity.FormattingEnabled = true;
+            this.cbParity.Location = new System.Drawing.Point(363, 12);
+            this.cbParity.Name = "cbParity";
+            this.cbParity.Size = new System.Drawing.Size(58, 23);
+            this.cbParity.TabIndex = 1;
+            this.cbParity.SelectionChangeCommitted += new System.EventHandler(this.cbParity_SelectionChangeCommitted);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 532);
+            this.ClientSize = new System.Drawing.Size(497, 570);
+            this.Controls.Add(this.cbParity);
+            this.Controls.Add(this.cbBaudRate);
+            this.Controls.Add(this.cbPort);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -229,6 +297,7 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -245,6 +314,12 @@
         private System.Windows.Forms.TabPage tabPage5;
         private RiserTuningAnalogLevelControl riserTuningAnalogLevel;
         private View.ModbusSerialPort modbusSerialPort1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbPort;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbBaudRate;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbParity;
     }
 }
 
