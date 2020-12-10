@@ -88,6 +88,8 @@ namespace TuningKOZ.View
                     sendBytes[sendBytes.Length - 2] = crc[0];
                     sendBytes[sendBytes.Length - 1] = crc[1];
 
+                    ReceivedBytesThreshold = 1;
+
                     DiscardInBuffer();
                     DiscardOutBuffer();
                     Write(sendBytes, 0, sendBytes.Length);
@@ -148,7 +150,8 @@ namespace TuningKOZ.View
                 if (onebyte < 0) break; // буфер приёма пуст, ошибка
                 buff.Add((byte)onebyte);
             }
-            if (buff.Count > 0)
+            // проверка соответствия номера узла и это ответные данные функции чтения
+            if (buff.Count > 4 && buff[0] == Node && (buff[1] & 0x7f) == Func)
             {
                 var crcCalc = Crc(buff.ToArray(), buff.Count - 2);
                 var crcBuff = BitConverter.ToUInt16(buff.ToArray(), buff.Count - 2);
@@ -166,8 +169,44 @@ namespace TuningKOZ.View
                         FetchVals[i] = BitConverter.ToUInt16(raw, 0);
                         n += 2;
                     }
+
+                    Console.WriteLine(string.Join("\t", FetchVals));
                     //
                     modbusDataReceived?.Invoke(this, new ModbusEventArgs(FetchVals));
+                }
+                else
+                {
+                    // ошибка контрольной суммы
+                    modbusErrorReceived?.Invoke(this, new ModbusErrorArgs(-1));
+                }
+            }
+            else
+            // проверка соответствия номера узла и это данные подтверждения функции записи
+            if (buff.Count == 8 && buff[0] == Node && (buff[1] & 0x80) == 0x00)
+            {
+                var crcCalc = Crc(buff.ToArray(), buff.Count - 2);
+                var crcBuff = BitConverter.ToUInt16(buff.ToArray(), buff.Count - 2);
+                if (crcCalc == crcBuff)
+                {
+                    // запись выполнена успешно
+                    modbusCommandOk?.Invoke(this, new EventArgs());
+                }
+                else
+                {
+                    // ошибка контрольной суммы
+                    modbusErrorReceived?.Invoke(this, new ModbusErrorArgs(-1));
+                }
+            }
+            else
+            // проверка соответствия номера узла и это подтверждение с кодом ошибки
+            if (buff.Count == 5 && buff[0] == Node && (buff[1] & 0x80) == 0x80)
+            {
+                var crcCalc = Crc(buff.ToArray(), buff.Count - 2);
+                var crcBuff = BitConverter.ToUInt16(buff.ToArray(), buff.Count - 2);
+                if (crcCalc == crcBuff)
+                {
+                    // возвращен код ошибки MODBUS
+                    modbusErrorReceived?.Invoke(this, new ModbusErrorArgs(buff[2]));
                 }
                 else
                 {
@@ -202,6 +241,17 @@ namespace TuningKOZ.View
         {
             add { modbusErrorReceived += value; }
             remove { modbusErrorReceived -= value; }
+        }
+
+        private event EventHandler modbusCommandOk;
+
+        /// <summary>
+        /// Событие при получении ошибки MODBUS
+        /// </summary>
+        public event EventHandler ModbusCommandOk
+        {
+            add { modbusCommandOk += value; }
+            remove { modbusCommandOk -= value; }
         }
 
     }

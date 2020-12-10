@@ -31,17 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.riserTuningLink = new TuningKOZ.RiserTuningLinkControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.riserTuningPlc = new TuningKOZ.RiserTuningPlcControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.riserTuningAdc = new TuningKOZ.RiserTuningAdcControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.riserTuningAlarmLevel = new TuningKOZ.RiserTuningAlarmLevelControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.riserTuningLink = new TuningKOZ.RiserTuningLinkControl();
+            this.riserTuningPlc = new TuningKOZ.RiserTuningPlcControl();
+            this.riserTuningAdc = new TuningKOZ.RiserTuningAdcControl();
+            this.riserTuningAlarmLevel = new TuningKOZ.RiserTuningAlarmLevelControl();
             this.riserTuningAnalogLevel = new TuningKOZ.RiserTuningAnalogLevelControl();
             this.modbusSerialPort1 = new TuningKOZ.View.ModbusSerialPort(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -78,6 +78,56 @@
             this.tabPage1.Text = "Параметры связи";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.riserTuningPlc);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(463, 478);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "PLC";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.riserTuningAdc);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(463, 478);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "ADC";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.riserTuningAlarmLevel);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(463, 478);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Аварийный уровень";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.riserTuningAnalogLevel);
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(463, 478);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Аналоговый уровень";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // riserTuningLink
             // 
             this.riserTuningLink.DataFromStorage = new int[0];
@@ -89,17 +139,6 @@
             this.riserTuningLink.NodeType = 0;
             this.riserTuningLink.Size = new System.Drawing.Size(457, 472);
             this.riserTuningLink.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.riserTuningPlc);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(463, 478);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "PLC";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // riserTuningPlc
             // 
@@ -113,19 +152,8 @@
             this.riserTuningPlc.Name = "riserTuningPlc";
             this.riserTuningPlc.NodeAddr = 0;
             this.riserTuningPlc.NodeType = 0;
-            this.riserTuningPlc.Size = new System.Drawing.Size(457, 472);
+            this.riserTuningPlc.Size = new System.Drawing.Size(457, 474);
             this.riserTuningPlc.TabIndex = 0;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.riserTuningAdc);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(463, 478);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "ADC";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // riserTuningAdc
             // 
@@ -139,19 +167,8 @@
             this.riserTuningAdc.Name = "riserTuningAdc";
             this.riserTuningAdc.NodeAddr = 0;
             this.riserTuningAdc.NodeType = 0;
-            this.riserTuningAdc.Size = new System.Drawing.Size(457, 472);
+            this.riserTuningAdc.Size = new System.Drawing.Size(457, 474);
             this.riserTuningAdc.TabIndex = 0;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.riserTuningAlarmLevel);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(463, 478);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Аварийный уровень";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // riserTuningAlarmLevel
             // 
@@ -165,19 +182,8 @@
             this.riserTuningAlarmLevel.Name = "riserTuningAlarmLevel";
             this.riserTuningAlarmLevel.NodeAddr = 0;
             this.riserTuningAlarmLevel.NodeType = 0;
-            this.riserTuningAlarmLevel.Size = new System.Drawing.Size(457, 472);
+            this.riserTuningAlarmLevel.Size = new System.Drawing.Size(457, 474);
             this.riserTuningAlarmLevel.TabIndex = 0;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.riserTuningAnalogLevel);
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(463, 478);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Аналоговый уровень";
-            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // riserTuningAnalogLevel
             // 
@@ -191,7 +197,7 @@
             this.riserTuningAnalogLevel.Name = "riserTuningAnalogLevel";
             this.riserTuningAnalogLevel.NodeAddr = 0;
             this.riserTuningAnalogLevel.NodeType = 0;
-            this.riserTuningAnalogLevel.Size = new System.Drawing.Size(457, 472);
+            this.riserTuningAnalogLevel.Size = new System.Drawing.Size(457, 474);
             this.riserTuningAnalogLevel.TabIndex = 0;
             // 
             // modbusSerialPort1
@@ -207,12 +213,8 @@
             this.modbusSerialPort1.WriteTimeout = 5000;
             this.modbusSerialPort1.ModbusDataReceived += new TuningKOZ.View.ModbusEventHandler(this.modbusSerialPort1_ModbusDataReceived);
             this.modbusSerialPort1.ModbusErrorReceived += new TuningKOZ.View.ModbusErrorHandler(this.modbusSerialPort1_ModbusErrorReceived);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.modbusSerialPort1.ModbusCommandOk += new System.EventHandler(this.modbusSerialPort1_ModbusCommandOk);
+            this.modbusSerialPort1.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler(this.modbusSerialPort1_ErrorReceived);
             // 
             // MainForm
             // 

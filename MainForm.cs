@@ -59,7 +59,33 @@ namespace TuningKOZ
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Fetch();
+            //Fetch();
+        }
+
+        private void modbusSerialPort1_ModbusCommandOk(object sender, EventArgs e)
+        {
+            var method = new MethodInvoker(() =>
+            {
+                Fetch();
+                MessageBox.Show(this, "Выполнено.", "Подтверждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            });
+            if (InvokeRequired)
+                BeginInvoke(method);
+            else
+                method();
+        }
+
+        private void modbusSerialPort1_ErrorReceived(object sender, System.IO.Ports.SerialErrorReceivedEventArgs e)
+        {
+            var method = new MethodInvoker(() =>
+            {
+                Fetch();
+                MessageBox.Show(this, "Что-то пошло не так...", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            });
+            if (InvokeRequired)
+                BeginInvoke(method);
+            else
+                method();
         }
     }
 }
