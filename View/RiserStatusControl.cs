@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using TuningKOZ.Model;
 
 namespace TuningKOZ
@@ -9,10 +8,6 @@ namespace TuningKOZ
         public RiserStatusControl()
         {
             InitializeComponent();
-            listBox1.Items.Add(new StatusControl() { Text = "кнопка Пуск" });
-            listBox1.Items.Add(new StatusControl() { Text = "конечник большого клапана", Value = true });
-            listBox1.Items.Add(new StatusControl() { Text = "конечник малого клапана", Right = true});
-            listBox1.Items.Add(new StatusControl() { Text = "цепь готовности", Right = true, Value = true });
         }
 
         public int NodeType { get; set; }
@@ -183,31 +178,5 @@ namespace TuningKOZ
                     return "Неопределённое состояние: " + state;
             }
         }
-
-        private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            var lbox = (ListBox)sender;
-            var status = lbox.Items[e.Index] as StatusControl;
-            if (status == null) return;
-            var gr = e.Graphics;
-            var rect = new RectangleF(e.Bounds.Location, e.Bounds.Size);
-            var r = new RectangleF(rect.X, rect.Y, rect.Height, rect.Height);
-            rect.X += r.Width;
-            rect.Width -= r.Width;
-            r.Inflate(-1, -1);
-            using (var brush = new SolidBrush(status.Value ? status.OnColor : status.OffColor))
-                gr.FillEllipse(brush, r);
-            using (var brush = new SolidBrush(lbox.ForeColor))
-                gr.DrawString(status.Text, lbox.Font, brush, rect.Location);
-        }
-    }
-
-    public class StatusControl
-    {
-        public string Text { get; set; }
-        public bool Value { get; set; }
-        public Color OffColor { get; set; } = Color.Red;
-        public Color OnColor { get; set; } = Color.Green;
-        public bool Right { get; set; }
     }
 }

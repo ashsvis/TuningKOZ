@@ -10,111 +10,31 @@ namespace TuningKOZ
     {
         private static readonly object Loglocker = new object();
 
-        public static bool FetchSerial(int comport, int baudrate, string parityCode,
-                                    int node, int func, int address, int datacount,
-                                    int sendTimeout, int receiveTimeout,
-                                    out int regcount, out ushort[] fetchvals, out int errorcode)
+
+        public static void FetchSerial(SerialPort sp, int node, int func, int address, int datacount,
+            out int regcount, out ushort[] fetchvals, out int errorcode)
         {
             regcount = 0;
             fetchvals = new ushort[regcount];
-            bool fetchError = true;
-            var sendBytes = EncodeData((byte)node, (byte)(func),
+            var sendBytes = EncodeData((byte)node, (byte)func,
                                        (byte)(address >> 8), (byte)(address & 0xff),
                                        (byte)(datacount >> 8), (byte)(datacount & 0xff), 0, 0);
+            sp.ReceivedBytesThreshold = (sendBytes[4] * 256 + sendBytes[5]) * 2 + 5;
             var buff = new List<byte>(sendBytes);
             var crc = BitConverter.GetBytes(Crc(buff.ToArray(), buff.Count - 2));
             sendBytes[sendBytes.Length - 2] = crc[0];
             sendBytes[sendBytes.Length - 1] = crc[1];
             errorcode = 0;
-            var portname = "COM" + comport;
-            var parity = Parity.None;
-            switch (parityCode)
-            {
-                case "N": parity = Parity.None; break;
-                case "E": parity = Parity.Even; break;
-                case "O": parity = Parity.Odd; break;
-                case "M": parity = Parity.Mark; break;
-                case "S": parity = Parity.Space; break;
-            }
             // Создаём последовательный порт для отправки запроса данных контроллеру
             buff.Clear();
-            using (var sp = new SerialPort(portname, baudrate, parity, 8, StopBits.One))
+            if (!sp.IsOpen) 
+                sp.Open();
+            if (sp.IsOpen)
             {
-                try
-                {
-                    sp.WriteTimeout = sendTimeout * 1000;
-                    sp.ReadTimeout = receiveTimeout * 1000;
-                    sp.Open();
-                    if (sp.IsOpen)
-                    {
-                        sp.DiscardInBuffer();
-                        sp.DiscardOutBuffer();
-                        sp.Write(sendBytes, 0, sendBytes.Length);
-                        var len = (sendBytes[4] * 256 + sendBytes[5]) * 2 + 5;
-                        while (true)
-                        {
-                            try
-                            {
-                                var onebyte = sp.ReadByte();
-                                if (onebyte < 0) break; // буфер приёма пуст, ошибка
-                                buff.Add((byte)onebyte);
-                                if (buff.Count == len)
-                                {
-                                    // конец приёма блока данных
-                                    break;
-                                }
-                            }
-                            catch (TimeoutException ex)
-                            {
-                                // устройство не ответило вовремя, ошибка
-                                fetchError = true;
-                                errorcode = -2;
-                                SendToErrorsLog(string.Format("Ошибка порта для [COM{0}]: {1}", comport, ex.Message));
-                                buff.Clear();
-                                break;
-                            }
-                        }
-                        if (buff.Count > 0)
-                        {
-                            var crcCalc = Crc(buff.ToArray(), buff.Count - 2);
-                            var crcBuff = BitConverter.ToUInt16(buff.ToArray(), buff.Count - 2);
-                            if (crcCalc == crcBuff)
-                            {
-                                // данные получены правильно
-                                fetchError = false;
-                                errorcode = 0;
-                                regcount = buff[2] / 2;
-                                fetchvals = new ushort[regcount];
-                                var n = 3;
-                                for (var i = 0; i < regcount; i++)
-                                {
-                                    var raw = new byte[2];
-                                    raw[0] = buff[n + 1];
-                                    raw[1] = buff[n];
-                                    fetchvals[i] = BitConverter.ToUInt16(raw, 0);
-                                    n += 2;
-                                }
-                            }
-                            else
-                            {
-                                // ошибка контрольной суммы
-                                fetchError = true;
-                                errorcode = -3;
-                                SendToErrorsLog(string.Format("Ошибка контрольной суммы для [COM{0}] от устройства {1}", comport, node));
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    fetchError = true;
-                    errorcode = -1;
-                    var mess = string.Format("Ошибка конфигурирования канала для [COM{0}]: {1}", comport, ex.Message);
-                    SendToErrorsLog(mess);
-                }
-            } // end of using            
-
-            return fetchError;
+                sp.DiscardInBuffer();
+                sp.DiscardOutBuffer();
+                sp.Write(sendBytes, 0, sendBytes.Length);
+            }
         }
 
         private static byte[] EncodeData(params byte[] list)
@@ -142,8 +62,6 @@ namespace TuningKOZ
             }
             return result;
         }
-
-        private static string _errcontent = "";
 
         public static void SendToErrorsLog(string content, string sdt = null)
         {

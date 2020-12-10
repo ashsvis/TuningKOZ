@@ -91,11 +91,11 @@
     <Compile Include="View\RiserTuningPlcControl.designer.cs">
       <DependentUpon>RiserTuningPlcControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UcRiserOneState.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="View\StatusControl.cs">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\UcRiserOneState.designer.cs">
-      <DependentUpon>UcRiserOneState.cs</DependentUpon>
+    <Compile Include="View\StatusControl.Designer.cs">
+      <DependentUpon>StatusControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -126,9 +126,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\RiserTuningPlcControl.resx">
       <DependentUpon>RiserTuningPlcControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UcRiserOneState.resx">
-      <DependentUpon>UcRiserOneState.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
