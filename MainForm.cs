@@ -10,7 +10,9 @@ namespace TuningKOZ
     public partial class MainForm : Form
     {
         private StatusForm statusForm;
-        private bool wasChecked;            // признак нажатого автоматического опроса
+        private WorkDiagramForm workDiagramForm;
+        // признак нажатого автоматического опроса
+        private bool wasChecked;            
 
         public MainForm()
         {
@@ -110,6 +112,7 @@ namespace TuningKOZ
                 riserTuningAlarmLevel.UpdateData(fetchVals, false);
                 riserTuningAnalogLevel.UpdateData(fetchVals, false);
                 statusForm?.UpdateData(fetchVals, false);
+                workDiagramForm?.UpdateData(fetchVals, false);
             });
             if (InvokeRequired)
                 BeginInvoke(method);
@@ -238,6 +241,20 @@ namespace TuningKOZ
                 statusForm = new StatusForm();
             statusForm.Show();
             statusForm.UpdateData(modbusSerialPort1.FetchVals, false);
+        }
+
+        /// <summary>
+        /// Вызов панели диаграммы работы стояка налива
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnWorkDiagram_Click(object sender, EventArgs e)
+        {
+            Fetch();
+            if (workDiagramForm == null)
+                workDiagramForm = new WorkDiagramForm(RiserTuning_OnWrite);
+            workDiagramForm.Show();
+            workDiagramForm.UpdateData(modbusSerialPort1.FetchVals, false);
         }
 
         /// <summary>

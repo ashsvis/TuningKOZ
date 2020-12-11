@@ -61,6 +61,7 @@
             this.cbFetching = new System.Windows.Forms.CheckBox();
             this.timerFetchig = new System.Windows.Forms.Timer(this.components);
             this.timerPulseFetch = new System.Windows.Forms.Timer(this.components);
+            this.btnWorkDiagram = new System.Windows.Forms.Button();
             this.tcProperties.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -428,12 +429,25 @@
             this.timerPulseFetch.Interval = 1000;
             this.timerPulseFetch.Tick += new System.EventHandler(this.timerPulseFetch_Tick);
             // 
+            // btnWorkDiagram
+            // 
+            this.btnWorkDiagram.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWorkDiagram.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnWorkDiagram.Location = new System.Drawing.Point(87, 577);
+            this.btnWorkDiagram.Name = "btnWorkDiagram";
+            this.btnWorkDiagram.Size = new System.Drawing.Size(126, 24);
+            this.btnWorkDiagram.TabIndex = 3;
+            this.btnWorkDiagram.Text = "Диаграмма работы";
+            this.btnWorkDiagram.UseVisualStyleBackColor = true;
+            this.btnWorkDiagram.Click += new System.EventHandler(this.btnWorkDiagram_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 608);
             this.Controls.Add(this.cbFetching);
+            this.Controls.Add(this.btnWorkDiagram);
             this.Controls.Add(this.btnStatus);
             this.Controls.Add(this.tcTuningLink);
             this.Controls.Add(this.cbSlaveID);
@@ -496,6 +510,7 @@
         private System.Windows.Forms.CheckBox cbFetching;
         private System.Windows.Forms.Timer timerFetchig;
         private System.Windows.Forms.Timer timerPulseFetch;
+        private System.Windows.Forms.Button btnWorkDiagram;
     }
 }
 

@@ -102,6 +102,12 @@
     <Compile Include="View\RiserTuningPlcControl.designer.cs">
       <DependentUpon>RiserTuningPlcControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\RiserWorkDiagramControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\RiserWorkDiagramControl.designer.cs">
+      <DependentUpon>RiserWorkDiagramControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StatusControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -114,6 +120,12 @@
     <Compile Include="View\StatusForm.Designer.cs">
       <DependentUpon>StatusForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\WorkDiagramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WorkDiagramForm.Designer.cs">
+      <DependentUpon>WorkDiagramForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +137,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
@@ -147,8 +160,14 @@
     <EmbeddedResource Include="View\RiserTuningPlcControl.resx">
       <DependentUpon>RiserTuningPlcControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\RiserWorkDiagramControl.resx">
+      <DependentUpon>RiserWorkDiagramControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\StatusForm.resx">
       <DependentUpon>StatusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WorkDiagramForm.resx">
+      <DependentUpon>WorkDiagramForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -162,6 +181,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flow_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flow_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ground_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ground_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hand_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\throat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\waggon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WorkDiagram.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
