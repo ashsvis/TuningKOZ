@@ -60,6 +60,12 @@
     <Compile Include="Model\ModbusSerialPort.Designer.cs">
       <DependentUpon>ModbusSerialPort.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RiserStatusControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,6 +120,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\RiserStatusControl.resx">
       <DependentUpon>RiserStatusControl.cs</DependentUpon>
     </EmbeddedResource>

@@ -3,6 +3,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Windows.Forms;
 using TuningKOZ.Model;
+using TuningKOZ.View;
 
 namespace TuningKOZ
 {
@@ -16,6 +17,8 @@ namespace TuningKOZ
             riserTuningAdc.OnWrite += RiserTuning_OnWrite;
             riserTuningAlarmLevel.OnWrite += RiserTuning_OnWrite;
             riserTuningAnalogLevel.OnWrite += RiserTuning_OnWrite;
+            // временно удаляем будущую фичу
+            tcTuningLink.TabPages.Remove(tpEthernetLink);
         }
 
         private void RiserTuning_OnWrite(int address, int regcount, ushort[] hregs, string[] changelogdata = null)
@@ -58,14 +61,19 @@ namespace TuningKOZ
 
         private void modbusSerialPort1_ModbusDataReceived(object sender, ModbusEventArgs e)
         {
+            UpdateTabs(e.FetchVals);
+        }
+
+        private void UpdateTabs(ushort[] fetchVals)
+        {
             var method = new MethodInvoker(() =>
             {
-                riserTuningLink.UpdateData(e.FetchVals, false);
-                riserTuningPlc.UpdateData(e.FetchVals, false);
-                riserTuningAdc.UpdateData(e.FetchVals, false);
-                riserTuningAlarmLevel.UpdateData(e.FetchVals, false);
-                riserTuningAnalogLevel.UpdateData(e.FetchVals, false);
-                //riserStatus.UpdateData(e.FetchVals, false);
+                riserTuningLink.UpdateData(fetchVals, false);
+                riserTuningPlc.UpdateData(fetchVals, false);
+                riserTuningAdc.UpdateData(fetchVals, false);
+                riserTuningAlarmLevel.UpdateData(fetchVals, false);
+                riserTuningAnalogLevel.UpdateData(fetchVals, false);
+                //riserStatus.UpdateData(fetchVals, false);
             });
             if (InvokeRequired)
                 BeginInvoke(method);
@@ -77,7 +85,7 @@ namespace TuningKOZ
         {
             var method = new MethodInvoker(() =>
             {
-                MessageBox.Show(this, e.Message, "Что-то пошло не так...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageForm.Show(MousePosition, e.Message, true);
             });
             if (InvokeRequired)
                 BeginInvoke(method);
@@ -90,7 +98,7 @@ namespace TuningKOZ
             var method = new MethodInvoker(() =>
             {
                 Fetch();
-                MessageBox.Show(this, "Выполнено.", "Подтверждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageForm.Show(MousePosition, "Выполнено.");
             });
             if (InvokeRequired)
                 BeginInvoke(method);
@@ -134,5 +142,14 @@ namespace TuningKOZ
             Fetch();
         }
 
+        private void modbusSerialPort1_ModbusTimeout(object sender, EventArgs e)
+        {
+            UpdateTabs(new ushort[] { });
+        }
+
+        private void btnStatus_Click(object sender, EventArgs e)
+        {
+            Fetch();
+        }
     }
 }

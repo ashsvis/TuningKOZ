@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO.Ports;
+using System.Windows.Forms;
 
 namespace TuningKOZ.Model
 {
-    public partial class ModbusSerialPort : SerialPort
+    public partial class ModbusSerialPort : SerialPort, IDisposable
     {
+        // Other managed resource this class uses.
+        private Timer timer = new Timer();
+
         public ModbusSerialPort()
         {
             InitializeComponent();
@@ -21,10 +25,27 @@ namespace TuningKOZ.Model
             InitializeEvents();
         }
 
+        ~ModbusSerialPort()
+        {
+            timer.Dispose();
+        }
+
         private void InitializeEvents()
         {
             DataReceived += ModbusSerialPort_DataReceived;
+            timer.Interval = ReadTimeout < 0 ? 1000 : ReadTimeout;
+            timer.Tick += Timer_Tick;
         }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            timer.Enabled = false;
+            // таймаут
+            modbusTimeout?.Invoke(this, new EventArgs());
+        }
+
+        protected override bool CanRaiseEvents => true;
+
 
         public int Node { get; set; }
         public int Func { get; set; }
@@ -57,6 +78,7 @@ namespace TuningKOZ.Model
                     DiscardInBuffer();
                     DiscardOutBuffer();
                     Write(sendBytes, 0, sendBytes.Length);
+                    timer.Enabled = true;
                 }
             }
             catch (Exception)
@@ -92,6 +114,7 @@ namespace TuningKOZ.Model
                     DiscardInBuffer();
                     DiscardOutBuffer();
                     Write(sendBytes, 0, sendBytes.Length);
+                    timer.Enabled = true;
                 }
             }
             catch (Exception)
@@ -147,6 +170,7 @@ namespace TuningKOZ.Model
         /// <param name="e"></param>
         private void ModbusSerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            timer.Enabled = false;
             var buff = new List<byte>();
             while (BytesToRead > 0)
             {
@@ -257,6 +281,17 @@ namespace TuningKOZ.Model
         {
             add { modbusErrorReceived += value; }
             remove { modbusErrorReceived -= value; }
+        }
+
+        private event EventHandler modbusTimeout;
+
+        /// <summary>
+        /// Событие при получении таймаута MODBUS
+        /// </summary>
+        public event EventHandler ModbusTimeout
+        {
+            add { modbusTimeout += value; }
+            remove { modbusTimeout -= value; }
         }
 
         private event EventHandler modbusCommandOk;

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tcProperties = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -43,9 +43,9 @@
             this.cbParity = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbSlaveID = new System.Windows.Forms.ComboBox();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tcTuningLink = new System.Windows.Forms.TabControl();
+            this.tpSerialLink = new System.Windows.Forms.TabPage();
+            this.tpEthernetLink = new System.Windows.Forms.TabPage();
             this.tbIpPort = new System.Windows.Forms.TextBox();
             this.tbIpAddress = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,33 +57,34 @@
             this.riserTuningAlarmLevel = new TuningKOZ.RiserTuningAlarmLevelControl();
             this.riserTuningAnalogLevel = new TuningKOZ.RiserTuningAnalogLevelControl();
             this.modbusSerialPort1 = new TuningKOZ.Model.ModbusSerialPort(this.components);
-            this.tabControl1.SuspendLayout();
+            this.btnAcceptEthernetLinkParams = new System.Windows.Forms.Button();
+            this.tcProperties.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.tabPage7.SuspendLayout();
+            this.tcTuningLink.SuspendLayout();
+            this.tpSerialLink.SuspendLayout();
+            this.tpEthernetLink.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tcProperties
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tcProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(14, 70);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(480, 504);
-            this.tabControl1.TabIndex = 2;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tcProperties.Controls.Add(this.tabPage1);
+            this.tcProperties.Controls.Add(this.tabPage2);
+            this.tcProperties.Controls.Add(this.tabPage3);
+            this.tcProperties.Controls.Add(this.tabPage4);
+            this.tcProperties.Controls.Add(this.tabPage5);
+            this.tcProperties.Location = new System.Drawing.Point(14, 70);
+            this.tcProperties.Name = "tcProperties";
+            this.tcProperties.SelectedIndex = 0;
+            this.tcProperties.Size = new System.Drawing.Size(480, 504);
+            this.tcProperties.TabIndex = 2;
+            this.tcProperties.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -216,45 +217,46 @@
             this.cbSlaveID.TabIndex = 0;
             this.cbSlaveID.SelectionChangeCommitted += new System.EventHandler(this.cbSlaveID_SelectionChangeCommitted);
             // 
-            // tabControl2
+            // tcTuningLink
             // 
-            this.tabControl2.Controls.Add(this.tabPage6);
-            this.tabControl2.Controls.Add(this.tabPage7);
-            this.tabControl2.Location = new System.Drawing.Point(94, 6);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(400, 61);
-            this.tabControl2.TabIndex = 1;
+            this.tcTuningLink.Controls.Add(this.tpSerialLink);
+            this.tcTuningLink.Controls.Add(this.tpEthernetLink);
+            this.tcTuningLink.Location = new System.Drawing.Point(94, 6);
+            this.tcTuningLink.Name = "tcTuningLink";
+            this.tcTuningLink.SelectedIndex = 0;
+            this.tcTuningLink.Size = new System.Drawing.Size(400, 61);
+            this.tcTuningLink.TabIndex = 1;
             // 
-            // tabPage6
+            // tpSerialLink
             // 
-            this.tabPage6.Controls.Add(this.cbPort);
-            this.tabPage6.Controls.Add(this.label1);
-            this.tabPage6.Controls.Add(this.cbParity);
-            this.tabPage6.Controls.Add(this.label2);
-            this.tabPage6.Controls.Add(this.cbBaudRate);
-            this.tabPage6.Controls.Add(this.label3);
-            this.tabPage6.Location = new System.Drawing.Point(4, 24);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(392, 33);
-            this.tabPage6.TabIndex = 0;
-            this.tabPage6.Text = "Serial Link";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tpSerialLink.Controls.Add(this.cbPort);
+            this.tpSerialLink.Controls.Add(this.label1);
+            this.tpSerialLink.Controls.Add(this.cbParity);
+            this.tpSerialLink.Controls.Add(this.label2);
+            this.tpSerialLink.Controls.Add(this.cbBaudRate);
+            this.tpSerialLink.Controls.Add(this.label3);
+            this.tpSerialLink.Location = new System.Drawing.Point(4, 24);
+            this.tpSerialLink.Name = "tpSerialLink";
+            this.tpSerialLink.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSerialLink.Size = new System.Drawing.Size(392, 33);
+            this.tpSerialLink.TabIndex = 0;
+            this.tpSerialLink.Text = "Serial Link";
+            this.tpSerialLink.UseVisualStyleBackColor = true;
             // 
-            // tabPage7
+            // tpEthernetLink
             // 
-            this.tabPage7.Controls.Add(this.tbIpPort);
-            this.tabPage7.Controls.Add(this.tbIpAddress);
-            this.tabPage7.Controls.Add(this.label6);
-            this.tabPage7.Controls.Add(this.label5);
-            this.tabPage7.Location = new System.Drawing.Point(4, 24);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(392, 33);
-            this.tabPage7.TabIndex = 1;
-            this.tabPage7.Text = "Ethernet Link";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.tpEthernetLink.Controls.Add(this.btnAcceptEthernetLinkParams);
+            this.tpEthernetLink.Controls.Add(this.tbIpPort);
+            this.tpEthernetLink.Controls.Add(this.tbIpAddress);
+            this.tpEthernetLink.Controls.Add(this.label6);
+            this.tpEthernetLink.Controls.Add(this.label5);
+            this.tpEthernetLink.Location = new System.Drawing.Point(4, 24);
+            this.tpEthernetLink.Name = "tpEthernetLink";
+            this.tpEthernetLink.Padding = new System.Windows.Forms.Padding(3);
+            this.tpEthernetLink.Size = new System.Drawing.Size(392, 33);
+            this.tpEthernetLink.TabIndex = 1;
+            this.tpEthernetLink.Text = "Ethernet Link";
+            this.tpEthernetLink.UseVisualStyleBackColor = true;
             // 
             // tbIpPort
             // 
@@ -296,13 +298,15 @@
             // 
             // btnStatus
             // 
+            this.btnStatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStatus.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnStatus.Location = new System.Drawing.Point(18, 47);
+            this.btnStatus.Location = new System.Drawing.Point(18, 46);
             this.btnStatus.Name = "btnStatus";
-            this.btnStatus.Size = new System.Drawing.Size(67, 20);
+            this.btnStatus.Size = new System.Drawing.Size(67, 21);
             this.btnStatus.TabIndex = 3;
             this.btnStatus.Text = "Статус...";
             this.btnStatus.UseVisualStyleBackColor = true;
+            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
             // 
             // riserTuningLink
             // 
@@ -328,7 +332,7 @@
             this.riserTuningPlc.Name = "riserTuningPlc";
             this.riserTuningPlc.NodeAddr = 0;
             this.riserTuningPlc.NodeType = 0;
-            this.riserTuningPlc.Size = new System.Drawing.Size(466, 472);
+            this.riserTuningPlc.Size = new System.Drawing.Size(466, 470);
             this.riserTuningPlc.TabIndex = 0;
             // 
             // riserTuningAdc
@@ -343,7 +347,7 @@
             this.riserTuningAdc.Name = "riserTuningAdc";
             this.riserTuningAdc.NodeAddr = 0;
             this.riserTuningAdc.NodeType = 0;
-            this.riserTuningAdc.Size = new System.Drawing.Size(466, 472);
+            this.riserTuningAdc.Size = new System.Drawing.Size(466, 470);
             this.riserTuningAdc.TabIndex = 0;
             // 
             // riserTuningAlarmLevel
@@ -358,7 +362,7 @@
             this.riserTuningAlarmLevel.Name = "riserTuningAlarmLevel";
             this.riserTuningAlarmLevel.NodeAddr = 0;
             this.riserTuningAlarmLevel.NodeType = 0;
-            this.riserTuningAlarmLevel.Size = new System.Drawing.Size(466, 472);
+            this.riserTuningAlarmLevel.Size = new System.Drawing.Size(466, 470);
             this.riserTuningAlarmLevel.TabIndex = 0;
             // 
             // riserTuningAnalogLevel
@@ -373,7 +377,7 @@
             this.riserTuningAnalogLevel.Name = "riserTuningAnalogLevel";
             this.riserTuningAnalogLevel.NodeAddr = 0;
             this.riserTuningAnalogLevel.NodeType = 0;
-            this.riserTuningAnalogLevel.Size = new System.Drawing.Size(466, 472);
+            this.riserTuningAnalogLevel.Size = new System.Drawing.Size(466, 470);
             this.riserTuningAnalogLevel.TabIndex = 0;
             // 
             // modbusSerialPort1
@@ -382,10 +386,23 @@
             this.modbusSerialPort1.DataCount = 61;
             this.modbusSerialPort1.Func = 3;
             this.modbusSerialPort1.Node = 247;
+            this.modbusSerialPort1.ReadTimeout = 500;
             this.modbusSerialPort1.StopBits = System.IO.Ports.StopBits.Two;
+            this.modbusSerialPort1.WriteTimeout = 500;
             this.modbusSerialPort1.ModbusDataReceived += new TuningKOZ.Model.ModbusEventHandler(this.modbusSerialPort1_ModbusDataReceived);
             this.modbusSerialPort1.ModbusErrorReceived += new TuningKOZ.Model.ModbusErrorHandler(this.modbusSerialPort1_ModbusErrorReceived);
+            this.modbusSerialPort1.ModbusTimeout += new System.EventHandler(this.modbusSerialPort1_ModbusTimeout);
             this.modbusSerialPort1.ModbusCommandOk += new System.EventHandler(this.modbusSerialPort1_ModbusCommandOk);
+            // 
+            // btnAcceptEthernetLinkParams
+            // 
+            this.btnAcceptEthernetLinkParams.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAcceptEthernetLinkParams.Location = new System.Drawing.Point(325, 6);
+            this.btnAcceptEthernetLinkParams.Name = "btnAcceptEthernetLinkParams";
+            this.btnAcceptEthernetLinkParams.Size = new System.Drawing.Size(61, 21);
+            this.btnAcceptEthernetLinkParams.TabIndex = 3;
+            this.btnAcceptEthernetLinkParams.Text = "Применить";
+            this.btnAcceptEthernetLinkParams.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -393,10 +410,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 578);
             this.Controls.Add(this.btnStatus);
-            this.Controls.Add(this.tabControl2);
+            this.Controls.Add(this.tcTuningLink);
             this.Controls.Add(this.cbSlaveID);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tcProperties);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -405,24 +422,24 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Утилита настройки контроллера ООО \"КОЗ\"";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tcProperties.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
+            this.tcTuningLink.ResumeLayout(false);
+            this.tpSerialLink.ResumeLayout(false);
+            this.tpSerialLink.PerformLayout();
+            this.tpEthernetLink.ResumeLayout(false);
+            this.tpEthernetLink.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tcProperties;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private RiserTuningLinkControl riserTuningLink;
@@ -442,14 +459,15 @@
         private System.Windows.Forms.ComboBox cbParity;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbSlaveID;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabControl tcTuningLink;
+        private System.Windows.Forms.TabPage tpSerialLink;
+        private System.Windows.Forms.TabPage tpEthernetLink;
         private System.Windows.Forms.Button btnStatus;
         private System.Windows.Forms.TextBox tbIpAddress;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbIpPort;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnAcceptEthernetLinkParams;
     }
 }
 
