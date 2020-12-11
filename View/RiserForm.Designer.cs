@@ -29,24 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.riserControl1 = new TuningKOZ.View.RiserControl(this.components);
             this.chboxSelected = new System.Windows.Forms.CheckBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
+            this.riserControl1 = new TuningKOZ.View.RiserControl(this.components);
             this.SuspendLayout();
-            // 
-            // riserControl1
-            // 
-            this.riserControl1.Location = new System.Drawing.Point(12, 12);
-            this.riserControl1.Name = "riserControl1";
-            this.riserControl1.Size = new System.Drawing.Size(148, 101);
-            this.riserControl1.TabIndex = 0;
-            this.riserControl1.Text = "riserControl1";
             // 
             // chboxSelected
             // 
             this.chboxSelected.AutoSize = true;
-            this.chboxSelected.Location = new System.Drawing.Point(21, 77);
+            this.chboxSelected.Location = new System.Drawing.Point(8, 62);
             this.chboxSelected.Name = "chboxSelected";
             this.chboxSelected.Size = new System.Drawing.Size(15, 14);
             this.chboxSelected.TabIndex = 1;
@@ -55,7 +47,7 @@
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnStart.Location = new System.Drawing.Point(12, 92);
+            this.btnStart.Location = new System.Drawing.Point(1, 78);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(54, 23);
             this.btnStart.TabIndex = 2;
@@ -65,18 +57,26 @@
             // btnStop
             // 
             this.btnStop.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnStop.Location = new System.Drawing.Point(107, 92);
+            this.btnStop.Location = new System.Drawing.Point(94, 78);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(54, 23);
             this.btnStop.TabIndex = 2;
             this.btnStop.Text = "Стоп";
             this.btnStop.UseVisualStyleBackColor = true;
             // 
+            // riserControl1
+            // 
+            this.riserControl1.Location = new System.Drawing.Point(1, 1);
+            this.riserControl1.Name = "riserControl1";
+            this.riserControl1.Size = new System.Drawing.Size(148, 101);
+            this.riserControl1.TabIndex = 0;
+            this.riserControl1.Text = "riserControl1";
+            // 
             // RiserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(169, 122);
+            this.ClientSize = new System.Drawing.Size(149, 102);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.chboxSelected);

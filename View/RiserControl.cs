@@ -47,9 +47,14 @@ namespace TuningKOZ.View
             var graphics = e.Graphics;
             var riserRect = ClientRectangle;
             var rect = new Rectangle(riserRect.Location, riserRect.Size);
-
+            using (var brush = new SolidBrush(Color.FromArgb(216, 228, 248)))
+                graphics.FillRectangle(brush, rect);
+            rect.Size -= new Size(1, 1);
+            DrawBorder(graphics, rect, Color.White, Color.FromArgb(160, 160, 160), 1);
             rect.Inflate(-1, -1);
-            DrawBorder(graphics, rect, SystemColors.ControlLightLight, SystemColors.ControlDarkDark, 1);
+            DrawBorder(graphics, rect, Color.FromArgb(160, 160, 160), Color.White, 1);
+            rect.Inflate(-2, -2);
+            DrawBorder(graphics, rect, Color.White, Color.FromArgb(160, 160, 160), 1);
 
             linked = true;
 
