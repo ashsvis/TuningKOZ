@@ -62,6 +62,7 @@
             this.timerFetchig = new System.Windows.Forms.Timer(this.components);
             this.timerPulseFetch = new System.Windows.Forms.Timer(this.components);
             this.btnWorkDiagram = new System.Windows.Forms.Button();
+            this.btnRiser = new System.Windows.Forms.Button();
             this.tcProperties.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -441,6 +442,17 @@
             this.btnWorkDiagram.UseVisualStyleBackColor = true;
             this.btnWorkDiagram.Click += new System.EventHandler(this.btnWorkDiagram_Click);
             // 
+            // btnRiser
+            // 
+            this.btnRiser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRiser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnRiser.Location = new System.Drawing.Point(222, 577);
+            this.btnRiser.Name = "btnRiser";
+            this.btnRiser.Size = new System.Drawing.Size(100, 24);
+            this.btnRiser.TabIndex = 3;
+            this.btnRiser.Text = "Стояк налива";
+            this.btnRiser.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -448,6 +460,7 @@
             this.ClientSize = new System.Drawing.Size(506, 608);
             this.Controls.Add(this.cbFetching);
             this.Controls.Add(this.btnWorkDiagram);
+            this.Controls.Add(this.btnRiser);
             this.Controls.Add(this.btnStatus);
             this.Controls.Add(this.tcTuningLink);
             this.Controls.Add(this.cbSlaveID);
@@ -511,6 +524,7 @@
         private System.Windows.Forms.Timer timerFetchig;
         private System.Windows.Forms.Timer timerPulseFetch;
         private System.Windows.Forms.Button btnWorkDiagram;
+        private System.Windows.Forms.Button btnRiser;
     }
 }
 

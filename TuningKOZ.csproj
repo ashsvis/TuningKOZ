@@ -66,6 +66,18 @@
     <Compile Include="View\MessageForm.Designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\RiserControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\RiserControl.Designer.cs">
+      <DependentUpon>RiserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RiserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RiserForm.Designer.cs">
+      <DependentUpon>RiserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RiserStatusControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,6 +153,9 @@
     </Compile>
     <EmbeddedResource Include="View\MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RiserForm.resx">
+      <DependentUpon>RiserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RiserStatusControl.resx">
       <DependentUpon>RiserStatusControl.cs</DependentUpon>
