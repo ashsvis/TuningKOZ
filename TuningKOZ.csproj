@@ -108,6 +108,12 @@
     <Compile Include="View\StatusControl.Designer.cs">
       <DependentUpon>StatusControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\StatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StatusForm.Designer.cs">
+      <DependentUpon>StatusForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\RiserTuningPlcControl.resx">
       <DependentUpon>RiserTuningPlcControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StatusForm.resx">
+      <DependentUpon>StatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

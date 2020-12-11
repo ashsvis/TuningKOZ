@@ -9,6 +9,8 @@ namespace TuningKOZ
 {
     public partial class MainForm : Form
     {
+        private StatusForm statusForm;
+
         public MainForm()
         {
             InitializeComponent();
@@ -73,7 +75,7 @@ namespace TuningKOZ
                 riserTuningAdc.UpdateData(fetchVals, false);
                 riserTuningAlarmLevel.UpdateData(fetchVals, false);
                 riserTuningAnalogLevel.UpdateData(fetchVals, false);
-                //riserStatus.UpdateData(fetchVals, false);
+                statusForm?.UpdateData(fetchVals, false);
             });
             if (InvokeRequired)
                 BeginInvoke(method);
@@ -150,6 +152,10 @@ namespace TuningKOZ
         private void btnStatus_Click(object sender, EventArgs e)
         {
             Fetch();
+            if (statusForm == null)
+                statusForm = new StatusForm();
+            statusForm.Show();
+            statusForm.UpdateData(modbusSerialPort1.FetchVals, false);
         }
     }
 }
