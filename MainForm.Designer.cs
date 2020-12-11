@@ -58,6 +58,9 @@
             this.riserTuningAnalogLevel = new TuningKOZ.RiserTuningAnalogLevelControl();
             this.modbusSerialPort1 = new TuningKOZ.Model.ModbusSerialPort(this.components);
             this.btnAcceptEthernetLinkParams = new System.Windows.Forms.Button();
+            this.cbFetching = new System.Windows.Forms.CheckBox();
+            this.timerFetchig = new System.Windows.Forms.Timer(this.components);
+            this.timerPulseFetch = new System.Windows.Forms.Timer(this.components);
             this.tcProperties.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -82,7 +85,7 @@
             this.tcProperties.Location = new System.Drawing.Point(14, 70);
             this.tcProperties.Name = "tcProperties";
             this.tcProperties.SelectedIndex = 0;
-            this.tcProperties.Size = new System.Drawing.Size(480, 504);
+            this.tcProperties.Size = new System.Drawing.Size(480, 501);
             this.tcProperties.TabIndex = 2;
             this.tcProperties.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -92,7 +95,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(472, 476);
+            this.tabPage1.Size = new System.Drawing.Size(472, 506);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Параметры связи";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -114,7 +117,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(472, 476);
+            this.tabPage3.Size = new System.Drawing.Size(472, 473);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "ADC";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -299,12 +302,12 @@
             // btnStatus
             // 
             this.btnStatus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStatus.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnStatus.Location = new System.Drawing.Point(18, 46);
+            this.btnStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnStatus.Location = new System.Drawing.Point(14, 577);
             this.btnStatus.Name = "btnStatus";
-            this.btnStatus.Size = new System.Drawing.Size(67, 21);
+            this.btnStatus.Size = new System.Drawing.Size(67, 24);
             this.btnStatus.TabIndex = 3;
-            this.btnStatus.Text = "Статус...";
+            this.btnStatus.Text = "Статус";
             this.btnStatus.UseVisualStyleBackColor = true;
             this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
             // 
@@ -317,7 +320,7 @@
             this.riserTuningLink.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.riserTuningLink.Name = "riserTuningLink";
             this.riserTuningLink.NodeType = 0;
-            this.riserTuningLink.Size = new System.Drawing.Size(466, 470);
+            this.riserTuningLink.Size = new System.Drawing.Size(466, 500);
             this.riserTuningLink.TabIndex = 0;
             // 
             // riserTuningPlc
@@ -347,7 +350,7 @@
             this.riserTuningAdc.Name = "riserTuningAdc";
             this.riserTuningAdc.NodeAddr = 0;
             this.riserTuningAdc.NodeType = 0;
-            this.riserTuningAdc.Size = new System.Drawing.Size(466, 470);
+            this.riserTuningAdc.Size = new System.Drawing.Size(466, 467);
             this.riserTuningAdc.TabIndex = 0;
             // 
             // riserTuningAlarmLevel
@@ -404,11 +407,33 @@
             this.btnAcceptEthernetLinkParams.Text = "Применить";
             this.btnAcceptEthernetLinkParams.UseVisualStyleBackColor = true;
             // 
+            // cbFetching
+            // 
+            this.cbFetching.AutoSize = true;
+            this.cbFetching.Location = new System.Drawing.Point(23, 49);
+            this.cbFetching.Name = "cbFetching";
+            this.cbFetching.Size = new System.Drawing.Size(62, 19);
+            this.cbFetching.TabIndex = 4;
+            this.cbFetching.Text = "Опрос";
+            this.cbFetching.UseVisualStyleBackColor = true;
+            this.cbFetching.CheckedChanged += new System.EventHandler(this.cbFetching_CheckedChanged);
+            // 
+            // timerFetchig
+            // 
+            this.timerFetchig.Interval = 1000;
+            this.timerFetchig.Tick += new System.EventHandler(this.timerFetchig_Tick);
+            // 
+            // timerPulseFetch
+            // 
+            this.timerPulseFetch.Interval = 1000;
+            this.timerPulseFetch.Tick += new System.EventHandler(this.timerPulseFetch_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 578);
+            this.ClientSize = new System.Drawing.Size(506, 608);
+            this.Controls.Add(this.cbFetching);
             this.Controls.Add(this.btnStatus);
             this.Controls.Add(this.tcTuningLink);
             this.Controls.Add(this.cbSlaveID);
@@ -468,6 +493,9 @@
         private System.Windows.Forms.TextBox tbIpPort;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAcceptEthernetLinkParams;
+        private System.Windows.Forms.CheckBox cbFetching;
+        private System.Windows.Forms.Timer timerFetchig;
+        private System.Windows.Forms.Timer timerPulseFetch;
     }
 }
 

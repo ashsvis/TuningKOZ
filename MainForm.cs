@@ -10,6 +10,7 @@ namespace TuningKOZ
     public partial class MainForm : Form
     {
         private StatusForm statusForm;
+        private bool wasChecked;            // признак нажатого автоматического опроса
 
         public MainForm()
         {
@@ -23,16 +24,33 @@ namespace TuningKOZ
             tcTuningLink.TabPages.Remove(tpEthernetLink);
         }
 
+        /// <summary>
+        /// Команда для записи новых параметров
+        /// </summary>
+        /// <param name="address"></param>
+        /// <param name="regcount"></param>
+        /// <param name="hregs"></param>
+        /// <param name="changelogdata"></param>
         private void RiserTuning_OnWrite(int address, int regcount, ushort[] hregs, string[] changelogdata = null)
         {
+            wasChecked = cbFetching.Checked;
+            cbFetching.Checked = false;
             modbusSerialPort1.WriteModbusData(address, hregs);
         }
 
+        /// <summary>
+        /// Опросить устройство (с параметрами по умолчанию)
+        /// </summary>
         private void Fetch()
         {
             modbusSerialPort1.FetchModbusData();
         }
 
+        /// <summary>
+        /// Первоначальная настройка контролов настройки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             cbPort.Items.AddRange(SerialPort.GetPortNames());
@@ -56,20 +74,36 @@ namespace TuningKOZ
             Fetch();
         }
 
+        /// <summary>
+        /// Переключение вкладок свойств
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Fetch();
+            if (!cbFetching.Checked)
+                Fetch();
         }
 
+        /// <summary>
+        /// Данные Modbus получены
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modbusSerialPort1_ModbusDataReceived(object sender, ModbusEventArgs e)
         {
             UpdateTabs(e.FetchVals);
         }
 
+        /// <summary>
+        /// Принимаем и раздаём данные в основном потоке
+        /// </summary>
+        /// <param name="fetchVals"></param>
         private void UpdateTabs(ushort[] fetchVals)
         {
             var method = new MethodInvoker(() =>
             {
+                // раздаем данные по вкладкам
                 riserTuningLink.UpdateData(fetchVals, false);
                 riserTuningPlc.UpdateData(fetchVals, false);
                 riserTuningAdc.UpdateData(fetchVals, false);
@@ -83,11 +117,18 @@ namespace TuningKOZ
                 method();
         }
 
+        /// <summary>
+        /// Ошибка приема данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modbusSerialPort1_ModbusErrorReceived(object sender, ModbusErrorArgs e)
         {
             var method = new MethodInvoker(() =>
             {
                 MessageForm.Show(MousePosition, e.Message, true);
+                if (wasChecked)
+                    cbFetching.Checked = true;
             });
             if (InvokeRequired)
                 BeginInvoke(method);
@@ -95,12 +136,21 @@ namespace TuningKOZ
                 method();
         }
 
+        /// <summary>
+        /// Команда записи в устройство выполнена успешно
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modbusSerialPort1_ModbusCommandOk(object sender, EventArgs e)
         {
             var method = new MethodInvoker(() =>
             {
                 Fetch();
                 MessageForm.Show(MousePosition, "Выполнено.");
+                if (wasChecked)
+                    cbFetching.Checked = true;
+                else
+                    timerPulseFetch.Enabled = true;
             });
             if (InvokeRequired)
                 BeginInvoke(method);
@@ -108,6 +158,11 @@ namespace TuningKOZ
                 method();
         }
 
+        /// <summary>
+        /// Выбор нового значения имени порта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbPort_SelectionChangeCommitted(object sender, EventArgs e)
         {
             modbusSerialPort1.Close();
@@ -117,6 +172,11 @@ namespace TuningKOZ
             Fetch();
         }
 
+        /// <summary>
+        /// Выбор нового значения скорости порта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbBaudRate_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (!int.TryParse(cbBaudRate.Text, out int baudrate)) return;
@@ -126,6 +186,11 @@ namespace TuningKOZ
             Fetch();
         }
 
+        /// <summary>
+        /// Выбор нового значения паритета порта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbParity_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (!Enum.TryParse(cbParity.Text, out Parity parity)) return;
@@ -135,6 +200,11 @@ namespace TuningKOZ
             Fetch();
         }
 
+        /// <summary>
+        /// Выбор нового значения ID устройства
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbSlaveID_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (!int.TryParse(cbSlaveID.Text, out int slaveID)) return;
@@ -144,11 +214,23 @@ namespace TuningKOZ
             Fetch();
         }
 
+        /// <summary>
+        /// Случится таймаут
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modbusSerialPort1_ModbusTimeout(object sender, EventArgs e)
         {
             UpdateTabs(new ushort[] { });
+            if (wasChecked)
+                cbFetching.Checked = true;
         }
 
+        /// <summary>
+        /// Вызов панели статуса стояка
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnStatus_Click(object sender, EventArgs e)
         {
             Fetch();
@@ -156,6 +238,34 @@ namespace TuningKOZ
                 statusForm = new StatusForm();
             statusForm.Show();
             statusForm.UpdateData(modbusSerialPort1.FetchVals, false);
+        }
+
+        /// <summary>
+        /// Включение/выключение автоматического опроса
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbFetching_CheckedChanged(object sender, EventArgs e)
+        {
+            timerFetchig.Enabled = cbFetching.Checked;
+        }
+
+        /// <summary>
+        /// По событию таймера делаем опрос
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timerFetchig_Tick(object sender, EventArgs e)
+        {
+            Fetch();
+        }
+
+        private void timerPulseFetch_Tick(object sender, EventArgs e)
+        {
+            timerPulseFetch.Enabled = false;
+
+            if (!cbFetching.Checked)
+                Fetch();
         }
     }
 }
