@@ -260,14 +260,14 @@ namespace TuningKOZ
 
         private void AddChangeItemHr15(ICollection<string> list, Control control, int mask, string message)
         {
-            if ((bool)control.Tag != (_hr15 & mask) > 0)
+            if (control != null && (bool)control.Tag != (_hr15 & mask) > 0)
                 list.Add(string.Concat(control.Name.Replace('_','.'), "\t", (bool)control.Tag ? "1" : "0",
                     "\t", (_hr15 & mask) > 0 ? "1" : "0", "\t", message));            
         }
 
         private void AddChangeItemHr18(ICollection<string> list, Control control, int mask, string message)
         {
-            if ((bool)control.Tag != (_hr18 & mask) > 0)
+            if (control != null && (bool)control.Tag != (_hr18 & mask) > 0)
                 list.Add(string.Concat(control.Name.Replace('_', '.'), "\t", (bool)control.Tag ? "1" : "0",
                     "\t", (_hr18 & mask) > 0 ? "1" : "0", "\t", message));
         }
@@ -275,6 +275,7 @@ namespace TuningKOZ
         private void UpdateBitHr15(Control control, int bit)
         {
             if (OnWrite == null) return;
+            if (control == null) return;
             if (control.Tag == null) return;
             var value = (bool)control.Tag;
             SetHRegFlag(ref _hr15, bit, !value);
@@ -289,6 +290,7 @@ namespace TuningKOZ
         private void UpdateBitHr18(Control control, int bit)
         {
             if (OnWrite == null) return;
+            if (control == null) return;
             if (control.Tag == null) return;
             var value = (bool)control.Tag;
             SetHRegFlag(ref _hr18, bit, !value);
