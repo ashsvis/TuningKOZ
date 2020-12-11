@@ -13,6 +13,7 @@ namespace TuningKOZ.View
     public partial class RiserControl : Control
     {
         private bool linked;
+        private int level;
         private bool workMode;
         private bool smallValve;
         private bool bigValve;
@@ -21,13 +22,9 @@ namespace TuningKOZ.View
         private bool showReadyAndAlarm;
         private bool alarmLevel;
         private bool? ready;
-        private bool calcBoxes;
-        private int currentLevel;
         private int setpoint;
-        private string ntype = "69";
+        private string ntype = "0";
         private int riser;
-        private bool fillingInProgress;
-        private bool channelActive;
 
         public RiserControl()
         {
@@ -39,6 +36,24 @@ namespace TuningKOZ.View
             container.Add(this);
 
             InitializeComponent();
+        }
+
+        public void UpdateData(ushort[] hregs, bool remoted)
+        {
+            if (hregs == null || hregs.Length != 61)
+            {
+                linked = false;
+                return;
+            }
+            linked = true;
+            level = (short)hregs[0x00];
+            ready = (hregs[3] & 0x08) > 0;
+            bigValve = (hregs[1] & 0x1000) > 0 || (hregs[3] & 0x02) > 0;
+            smallValve = (hregs[1] & 0x2000) > 0 || (hregs[3] & 0x04) > 0;
+            workMode = (hregs[1] & 0x4000) > 0 || (hregs[3] & 0x10) > 0;
+            alarmLevel = (hregs[1] & 0x0100) > 0 || (hregs[3] & 0xC000) > 0 || (hregs[4] & 0x0001) > 0;
+            hasNoGround = (hregs[1] & 0x0400) > 0;
+            hasHandMode = (hregs[1] & 0x0800) > 0;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -55,34 +70,22 @@ namespace TuningKOZ.View
             DrawBorder(graphics, rect, Color.FromArgb(160, 160, 160), Color.White, 1);
             rect.Inflate(-2, -2);
             DrawBorder(graphics, rect, Color.White, Color.FromArgb(160, 160, 160), 1);
-
-            linked = true;
-
             if (linked)
             {
                 rect = new Rectangle(new Point(riserRect.Left + 29, riserRect.Top + 22),
                                      Properties.Resources.waggon.Size);
                 graphics.DrawImage(Properties.Resources.waggon, rect);
-
-                workMode = true;
-
                 if (workMode) // стояк в положении налива (горловина показывается)
                 {
                     rect = new Rectangle(new Point(riserRect.Left + 67, riserRect.Top + 4),
                                          Properties.Resources.throat.Size);
                     graphics.DrawImage(Properties.Resources.throat, rect);
-
-                    smallValve = false;
-
                     if (smallValve) // малый клапан включен
                     {
                         rect = new Rectangle(new Point(riserRect.Left + 67, riserRect.Top + 4),
                                              Properties.Resources.flow_small.Size);
                         graphics.DrawImage(Properties.Resources.flow_small, rect);
                     }
-
-                    bigValve = false;
-
                     if (bigValve) // большой клапан включен
                     {
                         rect = new Rectangle(new Point(riserRect.Left + 67, riserRect.Top + 4),
@@ -90,9 +93,6 @@ namespace TuningKOZ.View
                         graphics.DrawImage(Properties.Resources.flow_big, rect);
                     }
                 }
-
-                showReadyAndAlarm = true;
-
                 if (showReadyAndAlarm)
                 {
                     DrawLamp(graphics, new Rectangle(riserRect.Left + 47, riserRect.Top + 7, 14, 14), ready,
@@ -104,10 +104,6 @@ namespace TuningKOZ.View
                 else
                     DrawLamp(graphics, new Rectangle(riserRect.Left + 47, riserRect.Top + 7, 14, 14), alarmLevel,
                                 Color.Red, Color.Lime, Color.Silver);
-
-
-                hasNoGround = false;
-
                 if (hasNoGround != null) // нет запрета контроля заземления
                 {
                     rect = new Rectangle(new Point(riserRect.Left + 76, riserRect.Top + 65),
@@ -118,9 +114,6 @@ namespace TuningKOZ.View
                                            ? Properties.Resources.ground_red
                                            : Properties.Resources.ground_green, rect);
                 }
-
-                hasHandMode = true;
-
                 if (hasHandMode) //режим АВТОНОМНО
                 {
                     rect = new Rectangle(new Point(riserRect.Left + 122, riserRect.Top + 4),
@@ -130,50 +123,39 @@ namespace TuningKOZ.View
             }
             using (var format = new StringFormat())
             {
-                if (!calcBoxes)
-                {
-                    format.LineAlignment = StringAlignment.Center;
-                    format.Alignment = StringAlignment.Center;
-                    // номер стояка
-                    using (var font = new Font("Courier New", 10, FontStyle.Bold))
-                        graphics.DrawString(riser.ToString("0"), font, linked ? Brushes.Blue : Brushes.Red,
-                                            new Rectangle(riserRect.Left + 58, riserRect.Top + 80, 34, 16),
-                                            format);
-                    // задание взлива
-                    using (var font = new Font("Courier New", 9, FontStyle.Bold))
-                        graphics.DrawString(setpoint.ToString("0"), font, Brushes.Black,
-                                            new Rectangle(riserRect.Left + 2, riserRect.Top + 6, 40, 16), format);
-                    // номер типа вагона
-                    using (var font = new Font("Courier New", 9, FontStyle.Bold))
-                        graphics.DrawString(ntype, font, Brushes.Green,
-                                            new Rectangle(riserRect.Left + 2, riserRect.Top + 39, 33, 16),
-                                            format);
-                }
+                format.LineAlignment = StringAlignment.Center;
+                format.Alignment = StringAlignment.Center;
+                // номер стояка
+                using (var font = new Font("Courier New", 10, FontStyle.Bold))
+                    graphics.DrawString(riser.ToString("0"), font, linked ? Brushes.Blue : Brushes.Red,
+                                        new Rectangle(riserRect.Left + 58, riserRect.Top + 80, 34, 16),
+                                        format);
+                // задание взлива
+                using (var font = new Font("Courier New", 9, FontStyle.Bold))
+                    graphics.DrawString(setpoint.ToString("0"), font, Brushes.Black,
+                                        new Rectangle(riserRect.Left + 2, riserRect.Top + 6, 40, 16), format);
+                // номер типа вагона
+                using (var font = new Font("Courier New", 9, FontStyle.Bold))
+                    graphics.DrawString(ntype, font, Brushes.Green,
+                                        new Rectangle(riserRect.Left + 2, riserRect.Top + 39, 33, 16),
+                                        format);
 
                 // текущий измеренный уровень взлива
                 if (linked)
                 {
-                    if (!calcBoxes)
+                    var valueForLevel = level.ToString("0");
+                    if (level < 0) valueForLevel = "0";
+                    using (var font = new Font("Segoe UI", 20, FontStyle.Bold))
                     {
-                        var valueForLevel = currentLevel.ToString("0");
-                        if (currentLevel < 0) valueForLevel = "0";
-                        using (var font = new Font("Segoe UI", 20, FontStyle.Bold))
-                        {
-                            graphics.DrawString(valueForLevel, font, Brushes.Black,
-                                                new Rectangle(riserRect.Left + 30, riserRect.Top + 18, 112, 56),
-                                                format);
-                            graphics.DrawString(valueForLevel, font, fillingInProgress
-                                                                         ? Brushes.Yellow
-                                                                         : Brushes.Khaki,
-                                                new Rectangle(riserRect.Left + 29, riserRect.Top + 17, 112, 56),
-                                                format);
-                        }
-                    }
-                    if (channelActive)
-                    {
+                        graphics.DrawString(valueForLevel, font, Brushes.Black,
+                                            new Rectangle(riserRect.Left + 30, riserRect.Top + 18, 112, 56),
+                                            format);
+                        graphics.DrawString(valueForLevel, font, Brushes.Yellow,
+                                            new Rectangle(riserRect.Left + 29, riserRect.Top + 17, 112, 56),
+                                            format);
                     }
                 }
-                else if (!calcBoxes)
+                else
                 {
                     using (var font = new Font("Courier New", 10, FontStyle.Bold))
                         graphics.DrawString("НЕТ СВЯЗИ", font, Brushes.Red,

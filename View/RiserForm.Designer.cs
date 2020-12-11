@@ -32,7 +32,7 @@
             this.chboxSelected = new System.Windows.Forms.CheckBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
-            this.riserControl1 = new TuningKOZ.View.RiserControl(this.components);
+            this.riserControl = new TuningKOZ.View.RiserControl(this.components);
             this.SuspendLayout();
             // 
             // chboxSelected
@@ -64,13 +64,13 @@
             this.btnStop.Text = "Стоп";
             this.btnStop.UseVisualStyleBackColor = true;
             // 
-            // riserControl1
+            // riserControl
             // 
-            this.riserControl1.Location = new System.Drawing.Point(1, 1);
-            this.riserControl1.Name = "riserControl1";
-            this.riserControl1.Size = new System.Drawing.Size(148, 101);
-            this.riserControl1.TabIndex = 0;
-            this.riserControl1.Text = "riserControl1";
+            this.riserControl.Location = new System.Drawing.Point(1, 1);
+            this.riserControl.Name = "riserControl";
+            this.riserControl.Size = new System.Drawing.Size(148, 101);
+            this.riserControl.TabIndex = 0;
+            this.riserControl.Text = "riserControl1";
             // 
             // RiserForm
             // 
@@ -80,7 +80,7 @@
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.chboxSelected);
-            this.Controls.Add(this.riserControl1);
+            this.Controls.Add(this.riserControl);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -90,6 +90,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Панель стояка налива";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RiserForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,7 +98,7 @@
 
         #endregion
 
-        private RiserControl riserControl1;
+        private RiserControl riserControl;
         private System.Windows.Forms.CheckBox chboxSelected;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;

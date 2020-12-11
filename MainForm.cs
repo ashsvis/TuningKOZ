@@ -11,8 +11,10 @@ namespace TuningKOZ
     {
         private StatusForm statusForm;
         private WorkDiagramForm workDiagramForm;
+        private RiserForm riserForm;
+
         // признак нажатого автоматического опроса
-        private bool wasChecked;            
+        private bool wasChecked;
 
         public MainForm()
         {
@@ -113,6 +115,7 @@ namespace TuningKOZ
                 riserTuningAnalogLevel.UpdateData(fetchVals, false);
                 statusForm?.UpdateData(fetchVals, false);
                 workDiagramForm?.UpdateData(fetchVals, false);
+                riserForm?.UpdateData(fetchVals, false);
             });
             if (InvokeRequired)
                 BeginInvoke(method);
@@ -255,6 +258,15 @@ namespace TuningKOZ
                 workDiagramForm = new WorkDiagramForm(RiserTuning_OnWrite);
             workDiagramForm.Show();
             workDiagramForm.UpdateData(modbusSerialPort1.FetchVals, false);
+        }
+
+        private void btnRiser_Click(object sender, EventArgs e)
+        {
+            Fetch();
+            if (riserForm == null)
+                riserForm = new RiserForm(RiserTuning_OnWrite);
+            riserForm.Show();
+            riserForm.UpdateData(modbusSerialPort1.FetchVals, false);
         }
 
         /// <summary>
