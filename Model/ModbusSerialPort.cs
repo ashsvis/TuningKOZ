@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO.Ports;
 
-namespace TuningKOZ.View
+namespace TuningKOZ.Model
 {
     public partial class ModbusSerialPort : SerialPort
     {

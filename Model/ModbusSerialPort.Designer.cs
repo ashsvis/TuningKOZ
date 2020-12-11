@@ -1,4 +1,4 @@
-﻿namespace TuningKOZ.View
+﻿namespace TuningKOZ.Model
 {
     partial class ModbusSerialPort
     {

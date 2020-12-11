@@ -54,10 +54,10 @@
     <Compile Include="Model\IFetchUpdate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\ModbusSerialPort.cs">
+    <Compile Include="Model\ModbusSerialPort.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\ModbusSerialPort.Designer.cs">
+    <Compile Include="Model\ModbusSerialPort.Designer.cs">
       <DependentUpon>ModbusSerialPort.cs</DependentUpon>
     </Compile>
     <Compile Include="View\RiserStatusControl.cs">

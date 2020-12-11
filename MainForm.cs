@@ -2,6 +2,7 @@
 using System.IO.Ports;
 using System.Linq;
 using System.Windows.Forms;
+using TuningKOZ.Model;
 
 namespace TuningKOZ
 {
@@ -55,7 +56,7 @@ namespace TuningKOZ
             Fetch();
         }
 
-        private void modbusSerialPort1_ModbusDataReceived(object sender, View.ModbusEventArgs e)
+        private void modbusSerialPort1_ModbusDataReceived(object sender, ModbusEventArgs e)
         {
             var method = new MethodInvoker(() =>
             {
@@ -72,7 +73,7 @@ namespace TuningKOZ
                 method();
         }
 
-        private void modbusSerialPort1_ModbusErrorReceived(object sender, View.ModbusErrorArgs e)
+        private void modbusSerialPort1_ModbusErrorReceived(object sender, ModbusErrorArgs e)
         {
             var method = new MethodInvoker(() =>
             {
@@ -132,5 +133,6 @@ namespace TuningKOZ
             modbusSerialPort1.Node = slaveID;
             Fetch();
         }
+
     }
 }

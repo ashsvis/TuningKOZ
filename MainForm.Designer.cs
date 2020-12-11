@@ -35,12 +35,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.riserTuningLink = new TuningKOZ.RiserTuningLinkControl();
-            this.riserTuningPlc = new TuningKOZ.RiserTuningPlcControl();
-            this.riserTuningAdc = new TuningKOZ.RiserTuningAdcControl();
-            this.riserTuningAlarmLevel = new TuningKOZ.RiserTuningAlarmLevelControl();
-            this.riserTuningAnalogLevel = new TuningKOZ.RiserTuningAnalogLevelControl();
-            this.modbusSerialPort1 = new TuningKOZ.View.ModbusSerialPort(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.cbPort = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,11 +46,17 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.btnFindRefresh = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.tbIpPort = new System.Windows.Forms.TextBox();
             this.tbIpAddress = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbIpPort = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnStatus = new System.Windows.Forms.Button();
+            this.riserTuningLink = new TuningKOZ.RiserTuningLinkControl();
+            this.riserTuningPlc = new TuningKOZ.RiserTuningPlcControl();
+            this.riserTuningAdc = new TuningKOZ.RiserTuningAdcControl();
+            this.riserTuningAlarmLevel = new TuningKOZ.RiserTuningAlarmLevelControl();
+            this.riserTuningAnalogLevel = new TuningKOZ.RiserTuningAnalogLevelControl();
+            this.modbusSerialPort1 = new TuningKOZ.Model.ModbusSerialPort(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -139,92 +139,6 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Аналоговый уровень";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // riserTuningLink
-            // 
-            this.riserTuningLink.DataFromStorage = new int[0];
-            this.riserTuningLink.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.riserTuningLink.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.riserTuningLink.Location = new System.Drawing.Point(3, 3);
-            this.riserTuningLink.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.riserTuningLink.Name = "riserTuningLink";
-            this.riserTuningLink.NodeType = 0;
-            this.riserTuningLink.Size = new System.Drawing.Size(466, 470);
-            this.riserTuningLink.TabIndex = 0;
-            // 
-            // riserTuningPlc
-            // 
-            this.riserTuningPlc.DataFromStorage = new int[0];
-            this.riserTuningPlc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.riserTuningPlc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.riserTuningPlc.IpAddress = null;
-            this.riserTuningPlc.IpPort = 0;
-            this.riserTuningPlc.Location = new System.Drawing.Point(3, 3);
-            this.riserTuningPlc.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.riserTuningPlc.Name = "riserTuningPlc";
-            this.riserTuningPlc.NodeAddr = 0;
-            this.riserTuningPlc.NodeType = 0;
-            this.riserTuningPlc.Size = new System.Drawing.Size(466, 470);
-            this.riserTuningPlc.TabIndex = 0;
-            // 
-            // riserTuningAdc
-            // 
-            this.riserTuningAdc.DataFromStorage = new int[0];
-            this.riserTuningAdc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.riserTuningAdc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.riserTuningAdc.IpAddress = null;
-            this.riserTuningAdc.IpPort = 0;
-            this.riserTuningAdc.Location = new System.Drawing.Point(3, 3);
-            this.riserTuningAdc.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.riserTuningAdc.Name = "riserTuningAdc";
-            this.riserTuningAdc.NodeAddr = 0;
-            this.riserTuningAdc.NodeType = 0;
-            this.riserTuningAdc.Size = new System.Drawing.Size(466, 470);
-            this.riserTuningAdc.TabIndex = 0;
-            // 
-            // riserTuningAlarmLevel
-            // 
-            this.riserTuningAlarmLevel.DataFromStorage = new int[0];
-            this.riserTuningAlarmLevel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.riserTuningAlarmLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.riserTuningAlarmLevel.IpAddress = null;
-            this.riserTuningAlarmLevel.IpPort = 0;
-            this.riserTuningAlarmLevel.Location = new System.Drawing.Point(3, 3);
-            this.riserTuningAlarmLevel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.riserTuningAlarmLevel.Name = "riserTuningAlarmLevel";
-            this.riserTuningAlarmLevel.NodeAddr = 0;
-            this.riserTuningAlarmLevel.NodeType = 0;
-            this.riserTuningAlarmLevel.Size = new System.Drawing.Size(466, 470);
-            this.riserTuningAlarmLevel.TabIndex = 0;
-            // 
-            // riserTuningAnalogLevel
-            // 
-            this.riserTuningAnalogLevel.DataFromStorage = new int[0];
-            this.riserTuningAnalogLevel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.riserTuningAnalogLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.riserTuningAnalogLevel.IpAddress = null;
-            this.riserTuningAnalogLevel.IpPort = 0;
-            this.riserTuningAnalogLevel.Location = new System.Drawing.Point(3, 3);
-            this.riserTuningAnalogLevel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.riserTuningAnalogLevel.Name = "riserTuningAnalogLevel";
-            this.riserTuningAnalogLevel.NodeAddr = 0;
-            this.riserTuningAnalogLevel.NodeType = 0;
-            this.riserTuningAnalogLevel.Size = new System.Drawing.Size(466, 470);
-            this.riserTuningAnalogLevel.TabIndex = 0;
-            // 
-            // modbusSerialPort1
-            // 
-            this.modbusSerialPort1.Address = 0;
-            this.modbusSerialPort1.DataCount = 61;
-            this.modbusSerialPort1.Func = 3;
-            this.modbusSerialPort1.Node = 247;
-            this.modbusSerialPort1.ReadTimeout = 5000;
-            this.modbusSerialPort1.RtsEnable = true;
-            this.modbusSerialPort1.StopBits = System.IO.Ports.StopBits.Two;
-            this.modbusSerialPort1.WriteTimeout = 5000;
-            this.modbusSerialPort1.ModbusDataReceived += new TuningKOZ.View.ModbusEventHandler(this.modbusSerialPort1_ModbusDataReceived);
-            this.modbusSerialPort1.ModbusErrorReceived += new TuningKOZ.View.ModbusErrorHandler(this.modbusSerialPort1_ModbusErrorReceived);
-            this.modbusSerialPort1.ModbusCommandOk += new System.EventHandler(this.modbusSerialPort1_ModbusCommandOk);
             // 
             // label1
             // 
@@ -342,24 +256,15 @@
             this.tabPage7.Text = "Ethernet Link";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // btnFindRefresh
+            // tbIpPort
             // 
-            this.btnFindRefresh.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnFindRefresh.Location = new System.Drawing.Point(18, 47);
-            this.btnFindRefresh.Name = "btnFindRefresh";
-            this.btnFindRefresh.Size = new System.Drawing.Size(67, 20);
-            this.btnFindRefresh.TabIndex = 3;
-            this.btnFindRefresh.Text = "Найти...";
-            this.btnFindRefresh.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 8);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 15);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Адрес IP:";
+            this.tbIpPort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbIpPort.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbIpPort.Location = new System.Drawing.Point(269, 6);
+            this.tbIpPort.Name = "tbIpPort";
+            this.tbIpPort.Size = new System.Drawing.Size(47, 21);
+            this.tbIpPort.TabIndex = 1;
+            this.tbIpPort.Text = "502";
             // 
             // tbIpAddress
             // 
@@ -380,22 +285,114 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Номер порта:";
             // 
-            // tbIpPort
+            // label5
             // 
-            this.tbIpPort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbIpPort.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbIpPort.Location = new System.Drawing.Point(269, 6);
-            this.tbIpPort.Name = "tbIpPort";
-            this.tbIpPort.Size = new System.Drawing.Size(47, 21);
-            this.tbIpPort.TabIndex = 1;
-            this.tbIpPort.Text = "502";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 15);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Адрес IP:";
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnStatus.Location = new System.Drawing.Point(18, 47);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(67, 20);
+            this.btnStatus.TabIndex = 3;
+            this.btnStatus.Text = "Статус...";
+            this.btnStatus.UseVisualStyleBackColor = true;
+            // 
+            // riserTuningLink
+            // 
+            this.riserTuningLink.DataFromStorage = new int[0];
+            this.riserTuningLink.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.riserTuningLink.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.riserTuningLink.Location = new System.Drawing.Point(3, 3);
+            this.riserTuningLink.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.riserTuningLink.Name = "riserTuningLink";
+            this.riserTuningLink.NodeType = 0;
+            this.riserTuningLink.Size = new System.Drawing.Size(466, 470);
+            this.riserTuningLink.TabIndex = 0;
+            // 
+            // riserTuningPlc
+            // 
+            this.riserTuningPlc.DataFromStorage = new int[0];
+            this.riserTuningPlc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.riserTuningPlc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.riserTuningPlc.IpAddress = null;
+            this.riserTuningPlc.IpPort = 0;
+            this.riserTuningPlc.Location = new System.Drawing.Point(3, 3);
+            this.riserTuningPlc.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.riserTuningPlc.Name = "riserTuningPlc";
+            this.riserTuningPlc.NodeAddr = 0;
+            this.riserTuningPlc.NodeType = 0;
+            this.riserTuningPlc.Size = new System.Drawing.Size(466, 472);
+            this.riserTuningPlc.TabIndex = 0;
+            // 
+            // riserTuningAdc
+            // 
+            this.riserTuningAdc.DataFromStorage = new int[0];
+            this.riserTuningAdc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.riserTuningAdc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.riserTuningAdc.IpAddress = null;
+            this.riserTuningAdc.IpPort = 0;
+            this.riserTuningAdc.Location = new System.Drawing.Point(3, 3);
+            this.riserTuningAdc.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.riserTuningAdc.Name = "riserTuningAdc";
+            this.riserTuningAdc.NodeAddr = 0;
+            this.riserTuningAdc.NodeType = 0;
+            this.riserTuningAdc.Size = new System.Drawing.Size(466, 472);
+            this.riserTuningAdc.TabIndex = 0;
+            // 
+            // riserTuningAlarmLevel
+            // 
+            this.riserTuningAlarmLevel.DataFromStorage = new int[0];
+            this.riserTuningAlarmLevel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.riserTuningAlarmLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.riserTuningAlarmLevel.IpAddress = null;
+            this.riserTuningAlarmLevel.IpPort = 0;
+            this.riserTuningAlarmLevel.Location = new System.Drawing.Point(3, 3);
+            this.riserTuningAlarmLevel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.riserTuningAlarmLevel.Name = "riserTuningAlarmLevel";
+            this.riserTuningAlarmLevel.NodeAddr = 0;
+            this.riserTuningAlarmLevel.NodeType = 0;
+            this.riserTuningAlarmLevel.Size = new System.Drawing.Size(466, 472);
+            this.riserTuningAlarmLevel.TabIndex = 0;
+            // 
+            // riserTuningAnalogLevel
+            // 
+            this.riserTuningAnalogLevel.DataFromStorage = new int[0];
+            this.riserTuningAnalogLevel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.riserTuningAnalogLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.riserTuningAnalogLevel.IpAddress = null;
+            this.riserTuningAnalogLevel.IpPort = 0;
+            this.riserTuningAnalogLevel.Location = new System.Drawing.Point(3, 3);
+            this.riserTuningAnalogLevel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.riserTuningAnalogLevel.Name = "riserTuningAnalogLevel";
+            this.riserTuningAnalogLevel.NodeAddr = 0;
+            this.riserTuningAnalogLevel.NodeType = 0;
+            this.riserTuningAnalogLevel.Size = new System.Drawing.Size(466, 472);
+            this.riserTuningAnalogLevel.TabIndex = 0;
+            // 
+            // modbusSerialPort1
+            // 
+            this.modbusSerialPort1.Address = 0;
+            this.modbusSerialPort1.DataCount = 61;
+            this.modbusSerialPort1.Func = 3;
+            this.modbusSerialPort1.Node = 247;
+            this.modbusSerialPort1.StopBits = System.IO.Ports.StopBits.Two;
+            this.modbusSerialPort1.ModbusDataReceived += new TuningKOZ.Model.ModbusEventHandler(this.modbusSerialPort1_ModbusDataReceived);
+            this.modbusSerialPort1.ModbusErrorReceived += new TuningKOZ.Model.ModbusErrorHandler(this.modbusSerialPort1_ModbusErrorReceived);
+            this.modbusSerialPort1.ModbusCommandOk += new System.EventHandler(this.modbusSerialPort1_ModbusCommandOk);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 578);
-            this.Controls.Add(this.btnFindRefresh);
+            this.Controls.Add(this.btnStatus);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.cbSlaveID);
             this.Controls.Add(this.label4);
@@ -436,7 +433,7 @@
         private RiserTuningAlarmLevelControl riserTuningAlarmLevel;
         private System.Windows.Forms.TabPage tabPage5;
         private RiserTuningAnalogLevelControl riserTuningAnalogLevel;
-        private View.ModbusSerialPort modbusSerialPort1;
+        private Model.ModbusSerialPort modbusSerialPort1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbPort;
         private System.Windows.Forms.Label label2;
@@ -448,7 +445,7 @@
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.Button btnFindRefresh;
+        private System.Windows.Forms.Button btnStatus;
         private System.Windows.Forms.TextBox tbIpAddress;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbIpPort;
