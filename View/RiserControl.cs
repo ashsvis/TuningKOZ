@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
+﻿using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TuningKOZ.View
@@ -19,7 +13,7 @@ namespace TuningKOZ.View
         private bool bigValve;
         private object hasNoGround;
         private bool hasHandMode;
-        private bool showReadyAndAlarm;
+        //private bool showReadyAndAlarm;
         private bool alarmLevel;
         private bool? ready;
         private int setpoint;
@@ -45,11 +39,18 @@ namespace TuningKOZ.View
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.ResizeRedraw, true);
         }
 
+        public string NType { get => ntype; set => ntype = value; }
+
+        public int SetPoint { get => setpoint; set => setpoint = value; }
+
+        public int Riser { get => riser; set => riser = value; }
+
         public void UpdateData(ushort[] hregs, bool remoted)
         {
             if (hregs == null || hregs.Length != 61)
             {
                 linked = false;
+                Invalidate();
                 return;
             }
             linked = true;
@@ -101,15 +102,15 @@ namespace TuningKOZ.View
                         graphics.DrawImage(Properties.Resources.flow_big, rect);
                     }
                 }
-                if (showReadyAndAlarm)
-                {
-                    DrawLamp(graphics, new Rectangle(riserRect.Left + 47, riserRect.Top + 7, 14, 14), ready,
-                             Color.Lime, Color.Red, Color.Silver);
-                    if (alarmLevel)
-                        DrawLamp(graphics, new Rectangle(riserRect.Left + 77, riserRect.Top + 22, 14, 14), true,
-                                 Color.Red, Color.Lime, Color.Silver);
-                }
-                else
+                //if (showReadyAndAlarm)
+                //{
+                //    DrawLamp(graphics, new Rectangle(riserRect.Left + 47, riserRect.Top + 7, 14, 14), ready,
+                //             Color.Lime, Color.Red, Color.Silver);
+                //    if (alarmLevel)
+                //        DrawLamp(graphics, new Rectangle(riserRect.Left + 77, riserRect.Top + 22, 14, 14), true,
+                //                 Color.Red, Color.Lime, Color.Silver);
+                //}
+                //else
                     DrawLamp(graphics, new Rectangle(riserRect.Left + 47, riserRect.Top + 7, 14, 14), alarmLevel,
                                 Color.Red, Color.Lime, Color.Silver);
                 if (hasNoGround != null) // нет запрета контроля заземления

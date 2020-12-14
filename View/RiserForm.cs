@@ -15,7 +15,6 @@ namespace TuningKOZ.View
             InitializeComponent();
             waggon = new WaggonData();
             this.modbusSerialPort1 = modbusSerialPort1;
-            //riserControl.OnWrite += riserTuning_OnWrite;
         }
 
         public void UpdateData(ushort[] fetchVals, bool remoted)
@@ -33,13 +32,16 @@ namespace TuningKOZ.View
         {
             var frm = new FormTaskDataEditor(waggon.Number, waggon.Ntype, waggon.FactHeight, waggon.Setpoint)
             {
-                Text = string.Format("Задание налива [ Стояк {0} ]", 247),
+                Text = string.Format("Задание налива [ Стояк {0} ]", modbusSerialPort1.Node),
                 DeepLevel = 900,
                 WorkLevel = 740
             };
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 waggon = frm.GetData;
+                riserControl.NType = waggon.Ntype;
+                riserControl.SetPoint = waggon.Setpoint;
+                riserControl.Riser = modbusSerialPort1.Node;
             }
         }
 
