@@ -27,5 +27,12 @@ namespace TuningKOZ.View
         {
             riserStatus.UpdateData(fetchVals, remoted);
         }
+
+        private void StatusForm_Load(object sender, EventArgs e)
+        {
+            if (Location == Point.Empty)
+                CenterToScreen();
+
+        }
     }
 }

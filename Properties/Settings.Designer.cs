@@ -70,5 +70,77 @@ namespace TuningKOZ.Properties {
                 this["SlaveID"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point RiserFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["RiserFormLocation"]));
+            }
+            set {
+                this["RiserFormLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point MainFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["MainFormLocation"]));
+            }
+            set {
+                this["MainFormLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoFetching {
+            get {
+                return ((bool)(this["AutoFetching"]));
+            }
+            set {
+                this["AutoFetching"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point FormTaskDataEditorLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["FormTaskDataEditorLocation"]));
+            }
+            set {
+                this["FormTaskDataEditorLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point StatusFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["StatusFormLocation"]));
+            }
+            set {
+                this["StatusFormLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point WorkDuagramFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["WorkDuagramFormLocation"]));
+            }
+            set {
+                this["WorkDuagramFormLocation"] = value;
+            }
+        }
     }
 }

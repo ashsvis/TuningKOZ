@@ -53,6 +53,7 @@
             this.btnStart.TabIndex = 2;
             this.btnStart.Text = "Старт";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnStop
             // 
@@ -63,6 +64,7 @@
             this.btnStop.TabIndex = 2;
             this.btnStop.Text = "Стоп";
             this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // riserControl
             // 
@@ -71,6 +73,7 @@
             this.riserControl.Size = new System.Drawing.Size(148, 101);
             this.riserControl.TabIndex = 0;
             this.riserControl.Text = "riserControl1";
+            this.riserControl.DoubleClick += new System.EventHandler(this.riserControl_DoubleClick);
             // 
             // RiserForm
             // 
@@ -81,8 +84,10 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.chboxSelected);
             this.Controls.Add(this.riserControl);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::TuningKOZ.Properties.Settings.Default, "RiserFormLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Location = global::TuningKOZ.Properties.Settings.Default.RiserFormLocation;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RiserForm";
@@ -91,6 +96,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Панель стояка налива";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RiserForm_FormClosing);
+            this.Load += new System.EventHandler(this.RiserForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

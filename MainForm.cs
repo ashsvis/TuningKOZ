@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
 using System.Windows.Forms;
@@ -57,6 +58,8 @@ namespace TuningKOZ
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
+            if (Location == Point.Empty)
+                CenterToScreen();
             cbPort.Items.AddRange(SerialPort.GetPortNames());
             cbPort.Text = Properties.Settings.Default.PortName;
             modbusSerialPort1.PortName = $"{cbPort.SelectedItem}";
@@ -76,6 +79,7 @@ namespace TuningKOZ
             cbSlaveID.Text = slaveID.ToString();
             modbusSerialPort1.Node = slaveID;
             Fetch();
+            timerFetchig.Enabled = cbFetching.Checked;
         }
 
         /// <summary>
@@ -243,7 +247,7 @@ namespace TuningKOZ
             if (statusForm == null)
                 statusForm = new StatusForm();
             statusForm.Show();
-            statusForm.UpdateData(modbusSerialPort1.FetchVals, false);
+            statusForm.BringToFront();
         }
 
         /// <summary>
@@ -257,16 +261,16 @@ namespace TuningKOZ
             if (workDiagramForm == null)
                 workDiagramForm = new WorkDiagramForm(RiserTuning_OnWrite);
             workDiagramForm.Show();
-            workDiagramForm.UpdateData(modbusSerialPort1.FetchVals, false);
+            workDiagramForm.BringToFront();
         }
 
         private void btnRiser_Click(object sender, EventArgs e)
         {
             Fetch();
             if (riserForm == null)
-                riserForm = new RiserForm(RiserTuning_OnWrite);
+                riserForm = new RiserForm(modbusSerialPort1, RiserTuning_OnWrite);
             riserForm.Show();
-            riserForm.UpdateData(modbusSerialPort1.FetchVals, false);
+            riserForm.BringToFront();
         }
 
         /// <summary>
@@ -295,6 +299,11 @@ namespace TuningKOZ
 
             if (!cbFetching.Checked)
                 Fetch();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Save();
         }
     }
 }

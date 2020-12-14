@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 using TuningKOZ.Model;
 
@@ -28,6 +21,13 @@ namespace TuningKOZ.View
         public void UpdateData(ushort[] fetchVals, bool remoted)
         {
             riserWorkDiagram.UpdateData(fetchVals, remoted);
+        }
+
+        private void WorkDiagramForm_Load(object sender, System.EventArgs e)
+        {
+            if (Location == Point.Empty)
+                CenterToScreen();
+
         }
     }
 }

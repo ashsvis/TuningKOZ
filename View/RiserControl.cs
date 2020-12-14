@@ -29,6 +29,7 @@ namespace TuningKOZ.View
         public RiserControl()
         {
             InitializeComponent();
+            Initialize();
         }
 
         public RiserControl(IContainer container)
@@ -36,6 +37,12 @@ namespace TuningKOZ.View
             container.Add(this);
 
             InitializeComponent();
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.ResizeRedraw, true);
         }
 
         public void UpdateData(ushort[] hregs, bool remoted)
@@ -54,6 +61,7 @@ namespace TuningKOZ.View
             alarmLevel = (hregs[1] & 0x0100) > 0 || (hregs[3] & 0xC000) > 0 || (hregs[4] & 0x0001) > 0;
             hasNoGround = (hregs[1] & 0x0400) > 0;
             hasHandMode = (hregs[1] & 0x0800) > 0;
+            Invalidate();
         }
 
         protected override void OnPaint(PaintEventArgs e)

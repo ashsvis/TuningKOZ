@@ -47,16 +47,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 598);
             this.Controls.Add(this.riserStatus);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::TuningKOZ.Properties.Settings.Default, "StatusFormLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Location = global::TuningKOZ.Properties.Settings.Default.StatusFormLocation;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StatusForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Статус стояка";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StatusForm_FormClosing);
+            this.Load += new System.EventHandler(this.StatusForm_Load);
             this.ResumeLayout(false);
 
         }

@@ -51,14 +51,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1297, 610);
             this.Controls.Add(this.riserWorkDiagram);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::TuningKOZ.Properties.Settings.Default, "WorkDuagramFormLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Location = global::TuningKOZ.Properties.Settings.Default.WorkDuagramFormLocation;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WorkDiagramForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Диаграмма работы стояка";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WorkDiagramForm_FormClosing);
+            this.Load += new System.EventHandler(this.WorkDiagramForm_Load);
             this.ResumeLayout(false);
 
         }

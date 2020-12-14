@@ -57,12 +57,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnStatus = new System.Windows.Forms.Button();
-            this.modbusSerialPort1 = new TuningKOZ.Model.ModbusSerialPort(this.components);
             this.cbFetching = new System.Windows.Forms.CheckBox();
             this.timerFetchig = new System.Windows.Forms.Timer(this.components);
             this.timerPulseFetch = new System.Windows.Forms.Timer(this.components);
             this.btnWorkDiagram = new System.Windows.Forms.Button();
             this.btnRiser = new System.Windows.Forms.Button();
+            this.modbusSerialPort1 = new TuningKOZ.Model.ModbusSerialPort(this.components);
             this.tcProperties.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -395,23 +395,11 @@
             this.btnStatus.UseVisualStyleBackColor = true;
             this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
             // 
-            // modbusSerialPort1
-            // 
-            this.modbusSerialPort1.Address = 0;
-            this.modbusSerialPort1.DataCount = 61;
-            this.modbusSerialPort1.Func = 3;
-            this.modbusSerialPort1.Node = 247;
-            this.modbusSerialPort1.ReadTimeout = 500;
-            this.modbusSerialPort1.StopBits = System.IO.Ports.StopBits.Two;
-            this.modbusSerialPort1.WriteTimeout = 500;
-            this.modbusSerialPort1.ModbusDataReceived += new TuningKOZ.Model.ModbusEventHandler(this.modbusSerialPort1_ModbusDataReceived);
-            this.modbusSerialPort1.ModbusErrorReceived += new TuningKOZ.Model.ModbusErrorHandler(this.modbusSerialPort1_ModbusErrorReceived);
-            this.modbusSerialPort1.ModbusTimeout += new System.EventHandler(this.modbusSerialPort1_ModbusTimeout);
-            this.modbusSerialPort1.ModbusCommandOk += new System.EventHandler(this.modbusSerialPort1_ModbusCommandOk);
-            // 
             // cbFetching
             // 
             this.cbFetching.AutoSize = true;
+            this.cbFetching.Checked = global::TuningKOZ.Properties.Settings.Default.AutoFetching;
+            this.cbFetching.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::TuningKOZ.Properties.Settings.Default, "AutoFetching", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.cbFetching.Location = new System.Drawing.Point(23, 49);
             this.cbFetching.Name = "cbFetching";
             this.cbFetching.Size = new System.Drawing.Size(62, 19);
@@ -454,6 +442,20 @@
             this.btnRiser.UseVisualStyleBackColor = true;
             this.btnRiser.Click += new System.EventHandler(this.btnRiser_Click);
             // 
+            // modbusSerialPort1
+            // 
+            this.modbusSerialPort1.Address = 0;
+            this.modbusSerialPort1.DataCount = 61;
+            this.modbusSerialPort1.Func = 3;
+            this.modbusSerialPort1.Node = 247;
+            this.modbusSerialPort1.ReadTimeout = 500;
+            this.modbusSerialPort1.StopBits = System.IO.Ports.StopBits.Two;
+            this.modbusSerialPort1.WriteTimeout = 500;
+            this.modbusSerialPort1.ModbusDataReceived += new TuningKOZ.Model.ModbusEventHandler(this.modbusSerialPort1_ModbusDataReceived);
+            this.modbusSerialPort1.ModbusErrorReceived += new TuningKOZ.Model.ModbusErrorHandler(this.modbusSerialPort1_ModbusErrorReceived);
+            this.modbusSerialPort1.ModbusTimeout += new System.EventHandler(this.modbusSerialPort1_ModbusTimeout);
+            this.modbusSerialPort1.ModbusCommandOk += new System.EventHandler(this.modbusSerialPort1_ModbusCommandOk);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -467,13 +469,16 @@
             this.Controls.Add(this.cbSlaveID);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tcProperties);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::TuningKOZ.Properties.Settings.Default, "MainFormLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Location = global::TuningKOZ.Properties.Settings.Default.MainFormLocation;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Утилита настройки контроллера ООО \"КОЗ\"";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tcProperties.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -503,7 +508,6 @@
         private RiserTuningAlarmLevelControl riserTuningAlarmLevel;
         private System.Windows.Forms.TabPage tabPage5;
         private RiserTuningAnalogLevelControl riserTuningAnalogLevel;
-        private Model.ModbusSerialPort modbusSerialPort1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbPort;
         private System.Windows.Forms.Label label2;
@@ -526,6 +530,7 @@
         private System.Windows.Forms.Timer timerPulseFetch;
         private System.Windows.Forms.Button btnWorkDiagram;
         private System.Windows.Forms.Button btnRiser;
+        private Model.ModbusSerialPort modbusSerialPort1;
     }
 }
 
