@@ -61,8 +61,8 @@ namespace TuningKOZ
             if (Location == Point.Empty)
                 CenterToScreen();
             cbPort.Items.AddRange(SerialPort.GetPortNames());
-            cbPort.Text = Properties.Settings.Default.PortName;
-            modbusSerialPort1.PortName = $"{cbPort.SelectedItem}";
+            cbPort.Text = Properties.Settings.Default.PortName ?? "COM1";
+            modbusSerialPort1.PortName = $"{cbPort.SelectedItem ?? "COM1"}";
             var abaud = new object[] { 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, 76800, 115200, 230400 };
             cbBaudRate.Items.AddRange(abaud);
             cbBaudRate.Text = Properties.Settings.Default.BaudRate;
@@ -178,7 +178,7 @@ namespace TuningKOZ
             modbusSerialPort1.Close();
             Properties.Settings.Default.PortName = cbPort.Text;
             Properties.Settings.Default.Save();
-            modbusSerialPort1.PortName = $"{cbPort.SelectedItem}";
+            modbusSerialPort1.PortName = $"{cbPort.SelectedItem ?? "COM1"}";
             Fetch();
         }
 
